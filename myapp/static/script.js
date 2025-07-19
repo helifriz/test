@@ -903,8 +903,6 @@ function printFlightLog() {
       <td colspan="2" >${leg.to}</td>
       <td style="text-align: center;" >:</td>
       <td style="text-align: center;" >:</td>
-      <td style="text-align: center;" >:</td>
-      <td style="text-align: center;" >:</td>
       <td>&nbsp;</td>
       <td></td>
       <td>&nbsp;</td>
@@ -957,8 +955,6 @@ function printFlightLog() {
         <td style="width:50px;">ORIGIN</td>
         <td colspan="2">DESTINATION</td>
         <td>START</td>
-        <td style="width:40px; text-align: center;">UP</td>
-        <td>DOWN</td>
         <td>STOP</td>
         <td>AIR</td>
         <td>FLT</td>
