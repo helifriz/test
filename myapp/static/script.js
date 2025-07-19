@@ -11,12 +11,6 @@ const BASE_COORDS = {
   "Prince Rupert": { lat: 54.4685, lon: -128.5762 },
 };
 
-function stripHtml(html) {
-  const div = document.createElement('div');
-  div.innerHTML = html;
-  return div.innerText;
-}
-
 function loadExtraPilots() {
   try {
     const stored = JSON.parse(localStorage.getItem('extraPilots') || '[]');
@@ -817,10 +811,6 @@ function composeEmail() {
       alert("No route points to build email links");
       return;
     }
-    if (!latestRouteTable || !latestLegWeights.length) {
-      alert("Please calculate the route before composing the email");
-      return;
-    }
     const foreflightURLs = [];
     for (let i = 0; i < points.length - 1; i++) {
       const legRoute = [points[i], points[i + 1]]
@@ -844,21 +834,12 @@ function composeEmail() {
       .join("+");
     const skyVectorURL = `https://skyvector.com/?fpl=${encodeURIComponent(skyVectorRoute)}`;
     const subject = encodeURIComponent("Flight Route Planner Links");
-    const routeText = stripHtml(latestRouteTable).trim();
-    const weightLines = latestLegWeights
-      .map(
-        (w, i) =>
-          `Leg ${i + 1}: Empty ${w.heliWeight}, Left ${w.leftWeight}, Right ${w.rightWeight}, 1A ${w.seat1a}, 2A ${w.seat2aTotal}, 1C ${w.seat1c}, Stretcher ${w.patientWeight}, Baggage ${w.baggage}`,
-      )
-      .join("\n");
     const body = encodeURIComponent(
       `Here are the route planner links:\n\n` +
-        `ForeFlight (Links for each leg):\n${foreflightURLs
-          .map((url, i) => `Leg ${i + 1}: ${url}`)
-          .join("\n")}\n\n` +
+        `ForeFlight (Links for each leg):\n${foreflightURLs.map((url, i) => `Leg ${i + 1}: ${url}`).join("\n")}\n\n` +
         `Windy:\n${windyURL}\n\n` +
         `METAR-TAF:\n${metarURL}\n\n` +
-        `SkyVector:\n${skyVectorURL}\n\n` +
+        `SkyVector:\n${skyVectorURL}`,
         `Route Table:\n${routeText}\n\n` +
         `Leg Weights:\n${weightLines}`,
     );
