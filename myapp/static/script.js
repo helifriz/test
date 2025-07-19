@@ -925,24 +925,18 @@ function printFlightLog() {
     <table class="tableizer-table">
       <tbody>
         <tr>
-          <th>DATE</th>
-          <td colspan="2" style="text-align: center;">${date}</td>
-          <th>REG:</th>
-          <td colspan="2">${reg}</td>
-          <th>LEFT SEAT:</th>
-          <td colspan="3">${left}</td>
-          <th>RIGHT SEAT:</th>
-          <td colspan="3" style="width:70px;!important;">${right}</td>
-          <th>SHIFT:</th>
-          <td colspan="2" style="width:40px;"></td>
+          <th>DATE</th><td style="text-align: center; width: 40px;">${date}</td>
+          <th>REG:</th><td>${reg}</td>
+          <th>LEFT SEAT:</th><td>${left}</td>
+          <th>RIGHT SEAT:</th><td>${right}</td>
+          <th>SHIFT:</th><td style="width:40px;"></td>
         </tr>
         <tr>
-          <td>FLT#</td><td colspan="2"></td>
-          <td>Seat 1A:</td><td colspan="2">${seat1a}</td>
-          <td>Seat 2A:</td><td colspan="3">${seat2a}</td>
-        <td>Seat 1C:</td><td colspan="3">${seat1c}</td>
-        <td>SQK:</td>
-        <td colspan="2"></td>
+          <td>FLT#</td><td></td>
+          <td>Seat 1A:</td><td>${seat1a}</td>
+          <td>Seat 2A:</td><td>${seat2a}</td>
+          <td>Seat 1C:</td><td>${seat1c}</td>
+          <td>SQK:</td><td></td>
         </tr>
         ${twilightRow}
       </tbody>
@@ -952,15 +946,15 @@ function printFlightLog() {
     <table class="tableizer-table">
       <tbody>
         <tr><td>LEG</td>
-        <td style="width:50px;" >ORIGIN</td>
-        <td colspan="2">DESTINATION</td>
+        <td>ORIGIN</td>
+        <td>DESTINATION</td>
         <td style="width:50px;" >START</td>
         <td style="width:50px;" >STOP</td>
-        <td style="width:50px;" >AIR</td>
-        <td style="width:50px;" >FLT</td>
+        <td style="width:30px;" >AIR</td>
+        <td style="width:30px;" >FLT</td>
         <td>FUEL UPLIFT</td>
         <td>SOULS</td>
-        <td style="text-align: center; width: 100px;">REMARKS</td>
+        <td style="text-align: center; width: 120px;">REMARKS</td>
         </tr>
         ${legRows}
         <tr><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td>
