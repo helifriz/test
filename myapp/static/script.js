@@ -907,7 +907,8 @@ function printFlightLog() {
       <td></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
-      <td colspan="5" </td></tr>`;
+      <td colspan="4" </td>
+      </tr>`;
   }
   const weightSection = latestWeightTable
     ? `<div class="weight-section">${latestWeightTable}</div>`
@@ -919,7 +920,8 @@ function printFlightLog() {
   const twilightRow = twilight
     ? `<tr><td colspan="2">Civil AM:</td><td colspan="3">${twilight.dawn}</td>` +
       `<td colspan="2">Civil PM:</td><td colspan="3">${twilight.dusk}</td>` +
-      `<td colspan="7"></td></tr>`
+      `<td colspan="6"></td>
+       </tr>`
     : "";
   const infoTable = `
     <table class="tableizer-table">
