@@ -10,6 +10,10 @@ DATA_FILE = os.environ.get(
     'DATA_FILE', os.path.join(os.path.dirname(__file__), 'data.json')
 )
 PORT = int(os.environ.get('PORT', '8080'))
+# Determine debug mode from environment. Any truthy value enables it.
+DEBUG = os.environ.get('DEBUG', 'False').lower() in (
+    '1', 'true', 't', 'yes', 'on'
+)
 
 
 def load_data():
@@ -106,4 +110,4 @@ def add_waypoint():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=PORT, debug=True)
+    app.run(host='0.0.0.0', port=PORT, debug=DEBUG)
