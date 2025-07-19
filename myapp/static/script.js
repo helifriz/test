@@ -960,7 +960,8 @@ function printFlightLog() {
         <td style="width:50px;" >FLT</td>
         <td>FUEL UPLIFT</td>
         <td>SOULS</td>
-        <td colspan="5" style="text-align: center;">REMARKS</td></tr>
+        <td style="text-align: center; width: 100px;">REMARKS</td>
+        </tr>
         ${legRows}
         <tr><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td>
         </td><td>TOTALS</td><td style="text-align: center;">.</td><td style="text-align: center;">.</td></tr>
