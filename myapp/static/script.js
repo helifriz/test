@@ -952,17 +952,17 @@ function printFlightLog() {
     <table class="tableizer-table">
       <tbody>
         <tr><td>LEG</td>
-        <td style="width:50px;">ORIGIN</td>
+        <td style="width:50px;" >ORIGIN</td>
         <td colspan="2">DESTINATION</td>
-        <td>START</td>
-        <td>STOP</td>
-        <td>AIR</td>
-        <td>FLT</td>
+        <td style="width:50px;" >START</td>
+        <td style="width:50px;" >STOP</td>
+        <td style="width:50px;" >AIR</td>
+        <td style="width:50px;" >FLT</td>
         <td>FUEL UPLIFT</td>
         <td>SOULS</td>
         <td colspan="5" style="text-align: center;">REMARKS</td></tr>
         ${legRows}
-        <tr><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td>
+        <tr><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td>
         </td><td>TOTALS</td><td style="text-align: center;">.</td><td style="text-align: center;">.</td></tr>
       </tbody>
     </table>`;
