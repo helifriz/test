@@ -833,20 +833,27 @@ function composeEmail() {
       .map((p) => toSkyVectorDMM(p.lat, p.lon))
       .join("+");
     const skyVectorURL = `https://skyvector.com/?fpl=${encodeURIComponent(skyVectorRoute)}`;
-    const subject = encodeURIComponent("Flight Route Planner Links");
-    const body = encodeURIComponent(
+
+    const tablesHtml = buildFlightPlanHTML();
+
+    const linksText =
       `Here are the route planner links:\n\n` +
-        `ForeFlight (Links for each leg):\n${foreflightURLs.map((url, i) => `Leg ${i + 1}: ${url}`).join("\n")}\n\n` +
-        `Windy:\n${windyURL}\n\n` +
-        `METAR-TAF:\n${metarURL}\n\n` +
-        `SkyVector:\n${skyVectorURL}`,
-    );
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
-  } catch (err) {
-    console.error(err);
-  }
+      `ForeFlight (Links for each leg):\n${foreflightURLs
+        .map((url, i) => `Leg ${i + 1}: ${url}`)
+        .join("\n")}\n\n` +
+      `Windy:\n${windyURL}\n\n` +
+      `METAR-TAF:\n${metarURL}\n\n` +
+      `SkyVector:\n${skyVectorURL}`;
+
+    const subject = encodeURIComponent("Flight Route Planner");
+  const body = encodeURIComponent(tablesHtml + "\n\n" + linksText);
+  window.location.href = `mailto:?subject=${subject}&body=${body}`;
+} catch (err) {
+  console.error(err);
 }
-function printFlightLog() {
+}
+
+function buildFlightPlanHTML() {
   const date = new Date().toLocaleDateString();
   const reg = document.getElementById("helicopter").value || "";
   const left = document.getElementById("leftPilot").value || "";
@@ -888,17 +895,17 @@ function printFlightLog() {
   let legRows = "";
   for (let i = 0; i < 10; i++) {
     const leg = legs[i] || { from: "&nbsp;", to: "&nbsp;" };
-    legRows += `<tr><td>${i + 1}</td>
-      <td>${leg.from}</td>
-      <td>${leg.to}</td>
-      <td style="text-align: center;" >:</td>
-      <td style="text-align: center;" >:</td>
-      <td>&nbsp;</td>
-      <td></td>
-      <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td></td>
-      </tr>`;
+    legRows += `<tr><td>${i + 1}</td>` +
+      `<td>${leg.from}</td>` +
+      `<td>${leg.to}</td>` +
+      `<td style="text-align: center;" >:</td>` +
+      `<td style="text-align: center;" >:</td>` +
+      `<td>&nbsp;</td>` +
+      `<td></td>` +
+      `<td>&nbsp;</td>` +
+      `<td>&nbsp;</td>` +
+      `<td></td>` +
+      `</tr>`;
   }
   const weightSection = latestWeightTable
     ? `<div class="weight-section">${latestWeightTable}</div>`
@@ -1012,11 +1019,16 @@ function printFlightLog() {
       ${weightSection}
       ${routeSection}
     </div>`;
+  return html;
+}
+function printFlightLog() {
+  const html = buildFlightPlanHTML();
   const win = window.open("", "_blank");
   win.document.write(html);
   win.document.close();
   win.print();
 }
+
 loadExtraPilots();
 loadExtraMedics();
 loadExtraWaypoints();
