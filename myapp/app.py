@@ -1,24 +1,41 @@
-from flask import Flask, render_template, request, jsonify, url_for
+from flask import Flask, render_template, request, jsonify
 import os
+import json
+import tempfile
 
 app = Flask(__name__)
 
-# Path to the shared data file
-# The JavaScript data file lives in the static directory
-DATA_FILE = os.path.join(os.path.dirname(__file__), 'static', 'data.js')
+# Path to the shared JSON data file. Use env variable to override
+DATA_FILE = os.environ.get(
+    'DATA_FILE', os.path.join(os.path.dirname(__file__), 'data.json')
+)
+PORT = int(os.environ.get('PORT', '8080'))
 
 
-def insert_before_end(lines, start_token, end_token, new_line):
-    """Insert new_line before end_token after start_token section."""
-    in_section = False
-    for i, line in enumerate(lines):
-        if not in_section and start_token in line:
-            in_section = True
-            continue
-        if in_section and line.strip() == end_token:
-            lines.insert(i, new_line)
-            return True
-    return False
+def load_data():
+    """Load the shared JSON data file."""
+    with open(DATA_FILE, 'r') as f:
+        return json.load(f)
+
+
+def save_data(data):
+    """Atomically save the shared JSON data file."""
+    directory = os.path.dirname(DATA_FILE)
+    fd, tmp_path = tempfile.mkstemp(dir=directory)
+    with os.fdopen(fd, 'w') as tmp:
+        json.dump(data, tmp, indent=2)
+    os.replace(tmp_path, DATA_FILE)
+
+
+def add_entry(section, item, code=None):
+    data = load_data()
+    if section == 'waypoints':
+        if not code:
+            raise ValueError('Waypoint code required')
+        data['waypoints'][code] = item
+    else:
+        data[section].append(item)
+    save_data(data)
 
 
 @app.route('/')
@@ -31,60 +48,53 @@ def manage():
     return render_template('manage.html')
 
 
+@app.route('/data')
+def get_data():
+    """Return the full data set as JSON."""
+    return jsonify(load_data())
+
+
 @app.route('/addPilot', methods=['POST'])
 def add_pilot():
-    data = request.get_json(force=True)
-    name = (data.get('name') or '').strip()
-    weight = data.get('weight')
+    payload = request.get_json(force=True)
+    name = (payload.get('name') or '').strip()
+    weight = payload.get('weight')
     if not name or weight is None:
         return jsonify({'error': 'Invalid data'}), 400
-    with open(DATA_FILE, 'r') as f:
-        lines = f.readlines()
-    newline = f'  {{ name: "{name}", weight: {weight} }},\n'
-    if not insert_before_end(lines, 'const PILOTS', '];', newline):
-        return jsonify({'error': 'Section not found'}), 500
-    with open(DATA_FILE, 'w') as f:
-        f.writelines(lines)
+    add_entry('PILOTS', {'name': name, 'weight': weight})
     return jsonify({'status': 'ok'})
 
 
 @app.route('/addMedic', methods=['POST'])
 def add_medic():
-    data = request.get_json(force=True)
-    name = (data.get('name') or '').strip()
-    weight = data.get('weight')
+    payload = request.get_json(force=True)
+    name = (payload.get('name') or '').strip()
+    weight = payload.get('weight')
     if not name or weight is None:
         return jsonify({'error': 'Invalid data'}), 400
-    with open(DATA_FILE, 'r') as f:
-        lines = f.readlines()
-    newline = f'  {{ name: "{name}", weight: {weight} }},\n'
-    if not insert_before_end(lines, 'const MEDICS', '];', newline):
-        return jsonify({'error': 'Section not found'}), 500
-    with open(DATA_FILE, 'w') as f:
-        f.writelines(lines)
+    add_entry('MEDICS', {'name': name, 'weight': weight})
     return jsonify({'status': 'ok'})
 
 
 @app.route('/addWaypoint', methods=['POST'])
 def add_waypoint():
-    data = request.get_json(force=True)
-    code = (data.get('code') or '').strip()
-    name = (data.get('name') or '').strip()
-    regions = data.get('regions') or []
-    lat = data.get('lat')
-    lon = data.get('lon')
+    payload = request.get_json(force=True)
+    code = (payload.get('code') or '').strip()
+    name = (payload.get('name') or '').strip()
+    regions = payload.get('regions') or []
+    lat = payload.get('lat')
+    lon = payload.get('lon')
     if not code or not name or not regions or lat is None or lon is None:
         return jsonify({'error': 'Invalid data'}), 400
-    with open(DATA_FILE, 'r') as f:
-        lines = f.readlines()
-    regions_js = '[' + ', '.join(f'"{r}"' for r in regions) + ']'
-    newline = f'  {code}: {{ name: "{name}", regions: {regions_js}, lat: {lat}, lon: {lon} }},\n'
-    if not insert_before_end(lines, 'const waypoints', '};', newline):
-        return jsonify({'error': 'Section not found'}), 500
-    with open(DATA_FILE, 'w') as f:
-        f.writelines(lines)
+    waypoint = {
+        'name': name,
+        'regions': regions,
+        'lat': lat,
+        'lon': lon,
+    }
+    add_entry('waypoints', waypoint, code=code)
     return jsonify({'status': 'ok'})
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=8080, debug=True)
+    app.run(host='0.0.0.0', port=PORT, debug=True)
