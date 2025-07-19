@@ -840,8 +840,6 @@ function composeEmail() {
         `Windy:\n${windyURL}\n\n` +
         `METAR-TAF:\n${metarURL}\n\n` +
         `SkyVector:\n${skyVectorURL}`,
-        `Route Table:\n${routeText}\n\n` +
-        `Leg Weights:\n${weightLines}`,
     );
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
   } catch (err) {
