@@ -631,6 +631,7 @@ function calculateRoute() {
   addRow("1C", "seat1c");
   addRow("Stretcher", "patientWeight");
   addRow("Baggage", "baggage");
+  addRow("ZFW",);
   addRow("Start Fuel");
   addRow("TOGW");
   weightTable += "</tbody></table>";
@@ -919,15 +920,14 @@ function printFlightLog() {
   const twilight = getCivilTwilight();
   const twilightRow = twilight
     ? `<tr><td colspan="2">Civil AM:</td><td colspan="3">${twilight.dawn}</td>` +
-      `<td colspan="2">Civil PM:</td><td colspan="3">${twilight.dusk}</td>` +
-      `<td colspan="6"></td>
+      `<td colspan="2">Civil PM:</td><td colspan="3">${twilight.dusk}</td>`
        </tr>`
     : "";
   const infoTable = `
     <table class="tableizer-table">
       <tbody>
         <tr>
-          <th>DATE</th><td style="text-align: center; width: 40px;">${date}</td>
+          <th>DATE</th><td style="text-align: center; width: 60px;">${date}</td>
           <th>REG:</th><td>${reg}</td>
           <th>LEFT SEAT:</th><td>${left}</td>
           <th>RIGHT SEAT:</th><td>${right}</td>
