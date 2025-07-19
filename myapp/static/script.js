@@ -596,7 +596,8 @@ function calculateRoute() {
       seat1a +
       seat2aTotal +
       seat1c +
-      patientWeight;
+      patientWeight +
+      baggage;
     legWeights.push({
       heliWeight,
       leftWeight,
