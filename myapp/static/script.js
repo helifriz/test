@@ -589,6 +589,14 @@ function calculateRoute() {
       <td>${totalWeight}</td>
     </tr>`;
     const seat2aTotal = seat2a + escortWeight;
+    const zfw =
+      heliWeight +
+      leftWeight +
+      rightWeight +
+      seat1a +
+      seat2aTotal +
+      seat1c +
+      patientWeight;
     legWeights.push({
       heliWeight,
       leftWeight,
@@ -598,6 +606,7 @@ function calculateRoute() {
       seat1c,
       patientWeight,
       baggage,
+      zfw,
     });
   });
   table += `<tr>
@@ -631,7 +640,7 @@ function calculateRoute() {
   addRow("1C", "seat1c");
   addRow("Stretcher", "patientWeight");
   addRow("Baggage", "baggage");
-  addRow("ZFW");
+  addRow("ZFW", "zfw");
   addRow("Start Fuel");
   addRow("TOGW");
   weightTable += "</tbody></table>";
