@@ -61,6 +61,9 @@ def add_pilot():
     weight = payload.get('weight')
     if not name or weight is None:
         return jsonify({'error': 'Invalid data'}), 400
+    data = load_data()
+    if any(p.get('name', '').lower() == name.lower() for p in data.get('PILOTS', [])):
+        return jsonify({'error': 'Pilot already exists'}), 400
     add_entry('PILOTS', {'name': name, 'weight': weight})
     return jsonify({'status': 'ok'})
 
@@ -72,6 +75,9 @@ def add_medic():
     weight = payload.get('weight')
     if not name or weight is None:
         return jsonify({'error': 'Invalid data'}), 400
+    data = load_data()
+    if any(m.get('name', '').lower() == name.lower() for m in data.get('MEDICS', [])):
+        return jsonify({'error': 'Medic already exists'}), 400
     add_entry('MEDICS', {'name': name, 'weight': weight})
     return jsonify({'status': 'ok'})
 
@@ -79,13 +85,16 @@ def add_medic():
 @app.route('/addWaypoint', methods=['POST'])
 def add_waypoint():
     payload = request.get_json(force=True)
-    code = (payload.get('code') or '').strip()
+    code = (payload.get('code') or '').strip().upper()
     name = (payload.get('name') or '').strip()
     regions = payload.get('regions') or []
     lat = payload.get('lat')
     lon = payload.get('lon')
     if not code or not name or not regions or lat is None or lon is None:
         return jsonify({'error': 'Invalid data'}), 400
+    data = load_data()
+    if code in data.get('waypoints', {}):
+        return jsonify({'error': 'Waypoint already exists'}), 400
     waypoint = {
         'name': name,
         'regions': regions,
