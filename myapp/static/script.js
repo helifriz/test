@@ -960,7 +960,7 @@ function printFlightLog() {
         <td style="text-align: center; width: 120px;">REMARKS</td>
         </tr>
         ${legRows}
-        <tr><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td>
+        <tr><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td>
         </td><td>TOTALS</td><td style="text-align: center;">.</td><td style="text-align: center;">.</td></tr>
       </tbody>
     </table>`;
