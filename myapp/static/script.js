@@ -833,20 +833,41 @@ function composeEmail() {
       .map((p) => toSkyVectorDMM(p.lat, p.lon))
       .join("+");
     const skyVectorURL = `https://skyvector.com/?fpl=${encodeURIComponent(skyVectorRoute)}`;
-    const subject = encodeURIComponent("Flight Route Planner Links");
-    const body = encodeURIComponent(
-      `Here are the route planner links:\n\n` +
-        `ForeFlight (Links for each leg):\n${foreflightURLs.map((url, i) => `Leg ${i + 1}: ${url}`).join("\n")}\n\n` +
-        `Windy:\n${windyURL}\n\n` +
-        `METAR-TAF:\n${metarURL}\n\n` +
-        `SkyVector:\n${skyVectorURL}`,
-    );
-    window.location.href = `mailto:?subject=${subject}&body=${body}`;
+    const email = document.getElementById('emailAddress').value.trim();
+    if (!email) {
+      alert('Please enter a recipient email');
+      return;
+    }
+    const html = buildFlightPlanHTML();
+    const subject = 'Flight Route Planner Links';
+    const body = `Here are the route planner links:\n\n` +
+      `ForeFlight (Links for each leg):\n${foreflightURLs.map((url, i) => `Leg ${i + 1}: ${url}`).join("\n")}\n\n` +
+      `Windy:\n${windyURL}\n\n` +
+      `METAR-TAF:\n${metarURL}\n\n` +
+      `SkyVector:\n${skyVectorURL}\n\n` +
+      `See attached flight plan PDF.`;
+    fetch('/sendEmail', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ to: email, subject, body, pdf_html: html }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.status === 'ok') {
+          alert('Email sent');
+        } else {
+          alert('Failed to send email');
+        }
+      })
+      .catch((err) => {
+        console.error(err);
+        alert('Failed to send email');
+      });
   } catch (err) {
     console.error(err);
   }
 }
-function printFlightLog() {
+function buildFlightPlanHTML() {
   const date = new Date().toLocaleDateString();
   const reg = document.getElementById("helicopter").value || "";
   const left = document.getElementById("leftPilot").value || "";
@@ -1012,11 +1033,16 @@ function printFlightLog() {
       ${weightSection}
       ${routeSection}
     </div>`;
+  return html;
+}
+function printFlightLog() {
+  const html = buildFlightPlanHTML();
   const win = window.open("", "_blank");
   win.document.write(html);
   win.document.close();
   win.print();
 }
+
 loadExtraPilots();
 loadExtraMedics();
 loadExtraWaypoints();
