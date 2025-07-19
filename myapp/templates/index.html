@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Helicopter Route Planner</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+  </head>
+  <body>
+    <h1>Helicopter Route Planner</h1>
+
+    <!-- Top Config -->
+    <div>
+      <label for="helicopter">Helicopter:</label>
+      <select id="helicopter"></select>
+
+      <label for="region-select">Base:</label>
+      <select id="region-select" onchange="populateAllDropdowns()">
+        <option value="ALL">All Regions</option>
+        <option value="Prince George">Prince George</option>
+        <option value="Prince Rupert">Prince Rupert</option>
+        <option value="Kamloops">Kamloops</option>
+        <option value="Parksville">Parksville</option>
+        <option value="Vancouver">Vancouver</option>
+      </select>
+
+      <label for="startFuel">Start Fuel</label>
+      <input
+        type="number"
+        id="startFuel"
+        value="700"
+        min="100"
+        max="904"
+        style="width: 50px"
+        placeholder="(Kg)"
+      />
+    </div>
+
+    <!-- Crew + baggage -->
+    <div>
+      <label for="leftPilot"></label>
+      <div class="pilot-search">
+        <input id="leftPilot" autocomplete="off" placeholder="Left Pilot" style="width: 100px" />
+        <div class="pilot-results" id="leftPilot-results"></div>
+      </div>
+
+      <label for="rightPilot"></label>
+      <div class="pilot-search">
+        <input id="rightPilot" autocomplete="off" placeholder="Right Pilot" style="width: 100px" />
+        <div class="pilot-results" id="rightPilot-results"></div>
+      </div>
+
+
+      <label for="baggage">Baggage</label>
+      <input type="number" id="baggage" style="width: 50px" placeholder="(Kg)" />
+    </div>
+
+    <!-- Seat Assignments -->
+    <div>
+      <label for="seat1a"></label>
+      <div class="pilot-search">
+        <input id="seat1a" autocomplete="off" placeholder="Seat 1A" style="width: 100px" />
+        <div class="pilot-results" id="seat1a-results"></div>
+      </div>
+
+      <label for="seat2a"></label>
+      <div class="pilot-search">
+        <input id="seat2a" autocomplete="off" placeholder="Seat 2A" style="width: 100px" />
+        <div class="pilot-results" id="seat2a-results"></div>
+      </div>
+
+      <label for="seat1c"></label>
+      <div class="pilot-search">
+        <input id="seat1c" autocomplete="off" placeholder="Seat 1C" style="width: 100px" />
+        <div class="pilot-results" id="seat1c-results"></div>
+      </div>
+    </div>
+
+    <!-- Config: Patient, Escort, Speed, Burn -->
+    <div>
+      <label for="patient">Patient</label>
+      <input type="number" id="patient" style="width: 50px" placeholder="(Kg)"/>
+
+      <label for="escort">Escort</label>
+      <input type="number" id="escort" style="width: 50px" placeholder="(Kg)" />
+
+      <label for="speed">Cruise Speed</label>
+      <input type="number" id="speed" value="115" style="width: 50px" placeholder="Kt" min="90" max="130" />
+
+      <label for="fuel">Fuel Burn</label>
+      <input type="number" id="fuel" value="300" style="width: 50px" placeholder="kg/hr" />
+    </div>
+
+    <!-- Route Legs -->
+    <div id="legs">
+      <div class="leg-row">
+        <table style="width: 100%; margin-bottom: 10px">
+          <tr>
+            <td>
+              <label>Leg 1:</label>
+              <div class="waypoint-search">
+                <input
+                  class="from"
+                  oninput="toggleSceneInputs(this)"
+                  placeholder="Select Waypoint"
+                />
+                <div class="waypoint-results"></div>
+              </div>
+              <div class="scene-inputs from-scene">
+                Lat:
+                <input
+                  type="number"
+                  placeholder="49.1939"
+                  step="0.0001"
+                  class="from-lat"
+                />
+                Lon:
+                <input
+                  type="number"
+                  placeholder="-123.1833"
+                  step="0.0001"
+                  class="from-lon"
+                />
+              </div>
+              ➝
+              <div class="waypoint-search">
+                <input
+                  class="to"
+                  oninput="toggleSceneInputs(this)"
+                  placeholder="Select Waypoint"
+                />
+                <div class="waypoint-results"></div>
+              </div>
+              <div class="scene-inputs to-scene">
+                Lat:
+                <input
+                  type="number"
+                  placeholder="49.1939"
+                  step="0.0001"
+                  class="to-lat"
+                />
+                Lon:
+                <input
+                  type="number"
+                  placeholder="-123.1833"
+                  step="0.0001"
+                  class="to-lon"
+                />
+              </div>
+              <button class="remove-leg-btn">Remove</button>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding-left: 20px">
+              <label
+                ><input type="checkbox" class="patient-checkbox" />
+                Patient</label
+              >
+              <label
+                ><input type="checkbox" class="escort-checkbox" /> Escort</label
+              >
+              <label>Fuel Uplift</label>
+              <input type="number" class="legfuel" style="width: 50px" min="100" max="904" placeholder="(Kg)"/>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div style="margin-top: 10px">
+      <button onclick="addLeg()">Add Leg</button>
+      <button onclick="calculateRoute()">Calculate Route</button>
+      <button onclick="openForeFlight()">Open Foreflight</button>
+      <button onclick="openSkyVector()">Open SkyVector</button>
+      <button onclick="getWeather()">Get Weather</button>
+      <button onclick="composeEmail()">Compose Email</button>
+      <button onclick="printFlightLog()">Print Flight Log</button>
+      <button onclick="window.location.href='{{ url_for('manage') }}'">Manage Data</button>
+
+      <div id="result"></div>
+      <div id="weightTable"></div>
+      <div id="errors" style="color: red"></div>
+
+      <script src="{{ url_for('static', filename='data.js') }}"></script>
+      <script src="{{ url_for('static', filename='script.js') }}"></script>
+    </div>
+  </body>
+</html>
