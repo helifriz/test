@@ -3,6 +3,14 @@ let latestWeightTable = "";
 let latestRouteTable = "";
 let currentWaypointCodes = [];
 
+const BASE_COORDS = {
+  "Vancouver": { lat: 49.1939, lon: -123.1833 },
+  "Parksville": { lat: 49.3394, lon: -124.3965 },
+  "Kamloops": { lat: 50.7022, lon: -120.4443 },
+  "Prince George": { lat: 53.8833, lon: -122.6783 },
+  "Prince Rupert": { lat: 54.4685, lon: -128.5762 },
+};
+
 function stripHtml(html) {
   const div = document.createElement('div');
   div.innerHTML = html;
@@ -661,6 +669,36 @@ function getPoints() {
   }
 }
 
+function getBaseCoords() {
+  const base = document.getElementById("region-select").value;
+  if (base !== "ALL" && BASE_COORDS[base]) {
+    return BASE_COORDS[base];
+  }
+  const firstLeg = document.querySelector(".leg-row");
+  if (!firstLeg) return null;
+  const fromSel = firstLeg.querySelector(".from");
+  const code = fromSel.dataset.code || fromSel.value.split(/[\s-]/)[0];
+  if (!code) return null;
+  if (code === "SCENE") {
+    const lat = parseFloat(firstLeg.querySelector(".from-lat").value);
+    const lon = parseFloat(firstLeg.querySelector(".from-lon").value);
+    if (!isNaN(lat) && !isNaN(lon)) return { lat, lon };
+    return null;
+  }
+  const wp = waypoints[code];
+  return wp ? { lat: wp.lat, lon: wp.lon } : null;
+}
+
+function getCivilTwilight() {
+  const coords = getBaseCoords();
+  if (!coords || typeof SunCalc === "undefined") return null;
+  const times = SunCalc.getTimes(new Date(), coords.lat, coords.lon);
+  const tz = "America/Vancouver";
+  const fmt = (d) =>
+    d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZone: tz });
+  return { dawn: fmt(times.dawn), dusk: fmt(times.dusk) };
+}
+
 function getWeather() {
   try {
     const points = getPoints();
@@ -879,6 +917,12 @@ function printFlightLog() {
   const routeSection = latestRouteTable
     ? `<div class="route-section">${latestRouteTable}</div>`
     : "";
+  const twilight = getCivilTwilight();
+  const twilightRow = twilight
+    ? `<tr><td colspan="2">Civil AM:</td><td colspan="3">${twilight.dawn}</td>` +
+      `<td colspan="2">Civil PM:</td><td colspan="3">${twilight.dusk}</td>` +
+      `<td colspan="7"></td></tr>`
+    : "";
   const infoTable = `
     <table class="tableizer-table">
       <tbody>
@@ -898,10 +942,11 @@ function printFlightLog() {
           <td>FLT#</td><td colspan="2"></td>
           <td>Seat 1A:</td><td colspan="2">${seat1a}</td>
           <td>Seat 2A:</td><td colspan="3">${seat2a}</td>
-          <td>Seat 1C:</td><td colspan="3">${seat1c}</td>
-          <td>SQK:</td>
-          <td colspan="2"></td>
+        <td>Seat 1C:</td><td colspan="3">${seat1c}</td>
+        <td>SQK:</td>
+        <td colspan="2"></td>
         </tr>
+        ${twilightRow}
       </tbody>
     </table>`;
 
