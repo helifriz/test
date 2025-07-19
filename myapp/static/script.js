@@ -921,7 +921,7 @@ function printFlightLog() {
   const twilightRow = twilight
     ? `<tr><td colspan="2">Civil AM:</td><td colspan="3">${twilight.dawn}</td>` +
       `<td colspan="2">Civil PM:</td><td colspan="3">${twilight.dusk}</td>` +
-      `<td colspan="1"></td>
+      `<td></td>
        </tr>`
     : "";
   const infoTable = `
@@ -960,7 +960,7 @@ function printFlightLog() {
         <td style="text-align: center; width: 120px;">REMARKS</td>
         </tr>
         ${legRows}
-        <tr><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td>
+        <tr><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td>
         </td><td>TOTALS</td><td style="text-align: center;">.</td><td style="text-align: center;">.</td></tr>
       </tbody>
     </table>`;
