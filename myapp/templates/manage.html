@@ -11,29 +11,38 @@
 
     <section>
       <h2>Add Pilot</h2>
+      <label for="pilotName">Name</label>
       <input id="pilotName" placeholder="Name" />
+      <label for="pilotWeight">Weight</label>
       <input id="pilotWeight" type="number" placeholder="Weight (kg)" />
-      <button onclick="addPilot()">Save Pilot</button>
+      <button id="savePilotBtn">Save Pilot</button>
     </section>
 
     <section>
       <h2>Add Medic</h2>
+      <label for="medicName">Name</label>
       <input id="medicName" placeholder="Name" />
+      <label for="medicWeight">Weight</label>
       <input id="medicWeight" type="number" placeholder="Weight (kg)" />
-      <button onclick="addMedic()">Save Medic</button>
+      <button id="saveMedicBtn">Save Medic</button>
     </section>
 
     <section>
       <h2>Add Waypoint</h2>
+      <label for="waypointCode">Code</label>
       <input id="waypointCode" placeholder="Code" />
+      <label for="waypointName">Name</label>
       <input id="waypointName" placeholder="Name" />
+      <label for="waypointRegion">Region(s)</label>
       <input id="waypointRegion" placeholder="Region(s)" />
+      <label for="waypointLat">Lat</label>
       <input id="waypointLat" type="number" step="0.0001" placeholder="Lat" />
+      <label for="waypointLon">Lon</label>
       <input id="waypointLon" type="number" step="0.0001" placeholder="Lon" />
-      <button onclick="addWaypoint()">Save Waypoint</button>
+      <button id="saveWaypointBtn">Save Waypoint</button>
     </section>
 
-    <button onclick="window.location.href='{{ url_for('index') }}'">Back</button>
+    <button id="backBtn" data-href="{{ url_for('index') }}">Back</button>
 
     <script src="{{ url_for('static', filename='manage.js') }}"></script>
   </body>

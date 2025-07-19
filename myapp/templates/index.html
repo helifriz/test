@@ -18,7 +18,7 @@
       <select id="helicopter"></select>
 
       <label for="region-select">Base:</label>
-      <select id="region-select" onchange="populateAllDropdowns()">
+      <select id="region-select">
         <option value="ALL">All Regions</option>
         <option value="Prince George">Prince George</option>
         <option value="Prince Rupert">Prince Rupert</option>
@@ -104,7 +104,6 @@
               <div class="waypoint-search">
                 <input
                   class="from"
-                  oninput="toggleSceneInputs(this)"
                   placeholder="Select Waypoint"
                 />
                 <div class="waypoint-results"></div>
@@ -129,7 +128,6 @@
               <div class="waypoint-search">
                 <input
                   class="to"
-                  oninput="toggleSceneInputs(this)"
                   placeholder="Select Waypoint"
                 />
                 <div class="waypoint-results"></div>
@@ -170,19 +168,19 @@
       </div>
     </div>
     <div style="margin-top: 10px">
-      <button onclick="addLeg()">Add Leg</button>
-      <button onclick="calculateRoute()">Calculate Route</button>
-      <button onclick="openForeFlight()">Open Foreflight</button>
-      <button onclick="getWeather()">Get Weather</button>
-      <button onclick="composeEmail()">Compose Email</button>
-      <button onclick="printFlightLog()">Print Flight Log</button>
-      <button onclick="window.location.href='{{ url_for('manage') }}'">Manage Data</button>
+      <button id="addLegBtn">Add Leg</button>
+      <button id="calcBtn">Calculate Route</button>
+      <button id="foreflightBtn">Open Foreflight</button>
+      <button id="weatherBtn">Get Weather</button>
+      <button id="emailBtn">Compose Email</button>
+      <button id="printBtn">Print Flight Log</button>
+      <button id="manageBtn" data-href="{{ url_for('manage') }}">Manage Data</button>
 
       <div id="result"></div>
       <div id="weightTable"></div>
       <div id="errors" style="color: red"></div>
 
-      <script src="{{ url_for('static', filename='data.js') }}"></script>
+      <!-- data.js replaced by server provided JSON -->
       <script src="{{ url_for('static', filename='suncalc.js') }}"></script>
       <script src="{{ url_for('static', filename='script.js') }}"></script>
     </div>

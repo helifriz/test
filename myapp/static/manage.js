@@ -15,6 +15,16 @@ function postData(url, data, cb) {
     });
 }
 
+function saveExtra(key, item) {
+  try {
+    const list = JSON.parse(localStorage.getItem(key) || '[]');
+    list.push(item);
+    localStorage.setItem(key, JSON.stringify(list));
+  } catch (err) {
+    console.error('Failed to update stored ' + key, err);
+  }
+}
+
 function addPilot() {
   const name = document.getElementById('pilotName').value.trim();
   const weight = parseFloat(document.getElementById('pilotWeight').value);
@@ -26,13 +36,7 @@ function addPilot() {
     document.getElementById('pilotName').value = '';
     document.getElementById('pilotWeight').value = '';
     alert('Pilot saved');
-    try {
-      const stored = JSON.parse(localStorage.getItem('extraPilots') || '[]');
-      stored.push({ name, weight });
-      localStorage.setItem('extraPilots', JSON.stringify(stored));
-    } catch (err) {
-      console.error('Failed to update stored pilots', err);
-    }
+    saveExtra('extraPilots', { name, weight });
   });
 }
 
@@ -47,13 +51,7 @@ function addMedic() {
     document.getElementById('medicName').value = '';
     document.getElementById('medicWeight').value = '';
     alert('Medic saved');
-    try {
-      const stored = JSON.parse(localStorage.getItem('extraMedics') || '[]');
-      stored.push({ name, weight });
-      localStorage.setItem('extraMedics', JSON.stringify(stored));
-    } catch (err) {
-      console.error('Failed to update stored medics', err);
-    }
+    saveExtra('extraMedics', { name, weight });
   });
 }
 
@@ -75,12 +73,19 @@ function addWaypoint() {
     document.getElementById('waypointLat').value = '';
     document.getElementById('waypointLon').value = '';
     alert('Waypoint saved');
-    try {
-      const stored = JSON.parse(localStorage.getItem('extraWaypoints') || '[]');
-      stored.push({ code, name, regions, lat, lon });
-      localStorage.setItem('extraWaypoints', JSON.stringify(stored));
-    } catch (err) {
-      console.error('Failed to update stored waypoints', err);
-    }
+    saveExtra('extraWaypoints', { code, name, regions, lat, lon });
   });
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+  const pilotBtn = document.getElementById('savePilotBtn');
+  const medicBtn = document.getElementById('saveMedicBtn');
+  const wpBtn = document.getElementById('saveWaypointBtn');
+  const backBtn = document.getElementById('backBtn');
+  if (pilotBtn) pilotBtn.addEventListener('click', addPilot);
+  if (medicBtn) medicBtn.addEventListener('click', addMedic);
+  if (wpBtn) wpBtn.addEventListener('click', addWaypoint);
+  if (backBtn) backBtn.addEventListener('click', () => {
+    window.location.href = backBtn.dataset.href;
+  });
+});

@@ -3,6 +3,30 @@ let latestWeightTable = "";
 let latestRouteTable = "";
 let currentWaypointCodes = [];
 
+let HELICOPTERS = [];
+let MAX_FUEL = 0;
+let MIN_FUEL = 0;
+let MAX_TAKEOFF_WEIGHT = 0;
+let waypoints = {};
+let PILOTS = [];
+let MEDICS = [];
+
+async function fetchData() {
+  try {
+    const res = await fetch('/data');
+    const data = await res.json();
+    HELICOPTERS = data.HELICOPTERS;
+    MAX_FUEL = data.MAX_FUEL;
+    MIN_FUEL = data.MIN_FUEL;
+    MAX_TAKEOFF_WEIGHT = data.MAX_TAKEOFF_WEIGHT;
+    waypoints = data.waypoints || {};
+    PILOTS = data.PILOTS;
+    MEDICS = data.MEDICS;
+  } catch (err) {
+    console.error('Failed to fetch data from server', err);
+  }
+}
+
 const BASE_COORDS = {
   "Vancouver": { lat: 49.1939, lon: -123.1833 },
   "Parksville": { lat: 49.3394, lon: -124.3965 },
@@ -11,30 +35,25 @@ const BASE_COORDS = {
   "Prince Rupert": { lat: 54.4685, lon: -128.5762 },
 };
 
-function loadExtraPilots() {
+function loadStoredList(key, target, prop) {
   try {
-    const stored = JSON.parse(localStorage.getItem('extraPilots') || '[]');
-    stored.forEach((p) => {
-      if (!PILOTS.some((existing) => existing.name === p.name)) {
-        PILOTS.push(p);
+    const stored = JSON.parse(localStorage.getItem(key) || '[]');
+    stored.forEach((item) => {
+      if (!target.some((existing) => existing[prop] === item[prop])) {
+        target.push(item);
       }
     });
   } catch (err) {
-    console.error('Failed to load stored pilots', err);
+    console.error('Failed to load stored ' + key, err);
   }
 }
 
+function loadExtraPilots() {
+  loadStoredList('extraPilots', PILOTS, 'name');
+}
+
 function loadExtraMedics() {
-  try {
-    const stored = JSON.parse(localStorage.getItem('extraMedics') || '[]');
-    stored.forEach((m) => {
-      if (!MEDICS.some((existing) => existing.name === m.name)) {
-        MEDICS.push(m);
-      }
-    });
-  } catch (err) {
-    console.error('Failed to load stored medics', err);
-  }
+  loadStoredList('extraMedics', MEDICS, 'name');
 }
 
 function loadExtraWaypoints() {
@@ -199,7 +218,7 @@ document
 });
 
 function setupWaypointInput(input) {
-  input.addEventListener("change", () => {
+  const updateCode = () => {
     const code = input.value.trim();
     if (code === "SCENE") {
       input.dataset.code = "SCENE";
@@ -211,7 +230,10 @@ function setupWaypointInput(input) {
     } else {
       input.dataset.code = "";
     }
-  });
+    toggleSceneInputs(input);
+  };
+  input.addEventListener("change", updateCode);
+  input.addEventListener("input", () => toggleSceneInputs(input));
 }
 
 function setupWaypointSearch(input) {
@@ -269,7 +291,6 @@ function setupWaypointInputs() {
   });
 }
 
-setupWaypointInputs();
 function populateDropdown(region) {
   currentWaypointCodes = Object.keys(waypoints)
     .filter(
@@ -347,7 +368,7 @@ function addLeg() {
         <td>
           <label>Leg ${legCount}:</label>
           <div class="waypoint-search">
-            <input class="from" oninput="toggleSceneInputs(this)" placeholder="Select Waypoint">
+            <input class="from" placeholder="Select Waypoint">
             <div class="waypoint-results"></div>
           </div>
           <div class="scene-inputs from-scene">
@@ -356,7 +377,7 @@ function addLeg() {
           </div>
           ➝
           <div class="waypoint-search">
-            <input class="to" oninput="toggleSceneInputs(this)" placeholder="Select Waypoint">
+            <input class="to" placeholder="Select Waypoint">
             <div class="waypoint-results"></div>
           </div>
           <div class="scene-inputs to-scene">
@@ -1017,11 +1038,33 @@ function printFlightLog() {
   win.document.close();
   win.print();
 }
-loadExtraPilots();
-loadExtraMedics();
-loadExtraWaypoints();
-populatePilotDropdowns();
-populateAllDropdowns();
-disableDuplicatePilot();
-populateHelicopterDropdown();
-document.querySelectorAll(".leg-row").forEach(attachRemoveHandler);
+async function start() {
+  await fetchData();
+  loadExtraPilots();
+  loadExtraMedics();
+  loadExtraWaypoints();
+  setupWaypointInputs();
+  populatePilotDropdowns();
+  populateAllDropdowns();
+  disableDuplicatePilot();
+  populateHelicopterDropdown();
+  document.querySelectorAll(".leg-row").forEach(attachRemoveHandler);
+
+  const qs = (id) => document.getElementById(id);
+  const mapping = [
+    ['addLegBtn', 'click', addLeg],
+    ['calcBtn', 'click', calculateRoute],
+    ['foreflightBtn', 'click', openForeFlight],
+    ['weatherBtn', 'click', getWeather],
+    ['emailBtn', 'click', composeEmail],
+    ['printBtn', 'click', printFlightLog],
+    ['manageBtn', 'click', (e) => (window.location.href = e.target.dataset.href)],
+    ['region-select', 'change', populateAllDropdowns],
+  ];
+  mapping.forEach(([id, evt, fn]) => {
+    const el = qs(id);
+    if (el) el.addEventListener(evt, fn);
+  });
+}
+
+document.addEventListener('DOMContentLoaded', start);
