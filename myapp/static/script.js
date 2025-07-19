@@ -919,10 +919,12 @@ function printFlightLog() {
     : "";
   const twilight = getCivilTwilight();
   const twilightRow = twilight
-    ? `<tr><td colspan="2">Civil AM:</td><td colspan="3">${twilight.dawn}</td>` +
-      `<td colspan="2">Civil PM:</td><td colspan="3">${twilight.dusk}</td>` +
+    ? `<tr>
+       <td colspan="2">Civil AM:</td><td colspan="3">${twilight.dawn}</td>
+       <td colspan="2">Civil PM:</td><td colspan="3">${twilight.dusk}</td>
        </tr>`
     : "";
+
   const infoTable = `
     <table class="tableizer-table">
       <tbody>
