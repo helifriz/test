@@ -901,14 +901,14 @@ function printFlightLog() {
     const leg = legs[i] || { from: "&nbsp;", to: "&nbsp;" };
     legRows += `<tr><td>${i + 1}</td>
       <td>${leg.from}</td>
-      <td colspan="2" >${leg.to}</td>
+      <td>${leg.to}</td>
       <td style="text-align: center;" >:</td>
       <td style="text-align: center;" >:</td>
       <td>&nbsp;</td>
       <td></td>
       <td>&nbsp;</td>
       <td>&nbsp;</td>
-      <td colspan="4" </td>
+      <td></td>
       </tr>`;
   }
   const weightSection = latestWeightTable
