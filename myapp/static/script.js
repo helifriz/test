@@ -631,7 +631,6 @@ function calculateRoute() {
   addRow("1C", "seat1c");
   addRow("Stretcher", "patientWeight");
   addRow("Baggage", "baggage");
-  addRow("ZFW",);
   addRow("Start Fuel");
   addRow("TOGW");
   weightTable += "</tbody></table>";
