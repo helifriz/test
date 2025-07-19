@@ -685,6 +685,9 @@ function getWeather() {
         window.open(googleMapsURL, "_blank");
       }
     });
+
+    // Open SkyVector route in a new tab as well
+    openSkyVector();
   } catch (err) {
     console.error(err);
     alert(err.message || "Unable to open weather information");
