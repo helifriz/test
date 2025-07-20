@@ -908,13 +908,18 @@ function composeEmail() {
     const endWp = points[points.length - 1].original || "";
     const subjectStr = `Flight #${flightNum} ${startWp} to ${endWp}`;
     const subject = encodeURIComponent(subjectStr);
-    const body = encodeURIComponent(
-      `Here are the route planner links:\n\n` +
-        `ForeFlight (Links for each leg):\n${foreflightURLs.map((url, i) => `Leg ${i + 1}: ${url}`).join("\n")}\n\n` +
-        `Windy:\n${windyURL}\n\n` +
-        `METAR-TAF:\n${metarURL}\n\n` +
-        `SkyVector:\n${skyVectorURL}`,
-    );
+    const bodyHTML =
+      "Here are the route planner links:" +
+      "\n\n" +
+      "ForeFlight (Links for each leg):\n" +
+      foreflightURLs
+        .map((url, i) => `<a href=\"${url}\">Leg ${i + 1}</a>`)
+        .join("\n") +
+      "\n\n" +
+      `Windy:\n<a href=\"${windyURL}\">${windyURL}</a>\n\n` +
+      `METAR-TAF:\n<a href=\"${metarURL}\">${metarURL}</a>\n\n` +
+      `SkyVector:\n<a href=\"${skyVectorURL}\">${skyVectorURL}</a>`;
+    const body = encodeURIComponent(bodyHTML);
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
   } catch (err) {
     console.error(err);
