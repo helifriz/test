@@ -202,3 +202,22 @@ table.tableizer-table {
   visibility: hidden;
   padding: 0;
 }
+
+/* Hide number input spinners for specific fields */
+#flightNum::-webkit-inner-spin-button,
+#flightNum::-webkit-outer-spin-button,
+#patient::-webkit-inner-spin-button,
+#patient::-webkit-outer-spin-button,
+#escort::-webkit-inner-spin-button,
+#escort::-webkit-outer-spin-button,
+#baggage::-webkit-inner-spin-button,
+#baggage::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+#flightNum,
+#patient,
+#escort,
+#baggage {
+  -moz-appearance: textfield;
+}
