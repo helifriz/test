@@ -455,6 +455,31 @@ function haversine(lat1, lon1, lat2, lon2) {
   );
 }
 function calculateRoute() {
+  // Ensure at least one leg has valid waypoints before calculating
+  const hasWaypoints = Array.from(document.querySelectorAll('.leg-row')).some(
+    (leg) => {
+      const fromSel = leg.querySelector('.from');
+      const toSel = leg.querySelector('.to');
+      const fromCode = fromSel.dataset.code || fromSel.value.split(/[\s-]/)[0];
+      const toCode = toSel.dataset.code || toSel.value.split(/[\s-]/)[0];
+      if (!fromCode || !toCode) return false;
+      if (fromCode === 'SCENE') {
+        const lat = leg.querySelector('.from-lat').value;
+        const lon = leg.querySelector('.from-lon').value;
+        if (!lat || !lon) return false;
+      }
+      if (toCode === 'SCENE') {
+        const lat = leg.querySelector('.to-lat').value;
+        const lon = leg.querySelector('.to-lon').value;
+        if (!lat || !lon) return false;
+      }
+      return true;
+    },
+  );
+  if (!hasWaypoints) {
+    alert('Please enter at least one complete leg before calculating the route.');
+    return;
+  }
   const cruise = parseFloat(document.getElementById("speed").value);
   const burn = parseFloat(document.getElementById("fuel").value);
   const startFuelInput = document.getElementById("startFuel");
