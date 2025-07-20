@@ -355,8 +355,29 @@ function attachRemoveHandler(row) {
   });
 }
 function addLeg() {
-  const legCount = document.querySelectorAll(".leg-row").length + 1;
-  const prevLeg = document.querySelector(`.leg-row:nth-child(${legCount - 1})`);
+  const legRows = document.querySelectorAll(".leg-row");
+  const legCount = legRows.length + 1;
+  const prevLeg = legRows[legRows.length - 1];
+  if (!prevLeg) return;
+  const fromSel = prevLeg.querySelector(".from");
+    const toSel = prevLeg.querySelector(".to");
+    const fromCode = fromSel.dataset.code || fromSel.value.split(/[\s-]/)[0];
+    const toCode = toSel.dataset.code || toSel.value.split(/[\s-]/)[0];
+    const checkScene = (code, prefix) => {
+      if (code !== "SCENE") return true;
+      const lat = prevLeg.querySelector(`.${prefix}-lat`).value;
+      const lon = prevLeg.querySelector(`.${prefix}-lon`).value;
+      return lat && lon;
+    };
+    if (
+      !fromCode ||
+      !toCode ||
+      !checkScene(fromCode, "from") ||
+      !checkScene(toCode, "to")
+    ) {
+      alert("Please complete the previous leg before adding another.");
+      return;
+    }
   const prevTo = prevLeg.querySelector(".to");
   const prevToLat = prevLeg.querySelector(".to-lat")?.value;
   const prevToLon = prevLeg.querySelector(".to-lon")?.value;
