@@ -29,7 +29,7 @@ async function fetchData() {
 
 const BASE_COORDS = {
   "Vancouver": { lat: 49.1939, lon: -123.1833 },
-  "Parksville": { lat: 49.3394, lon: -124.3965 },
+  "Parksville": { lat: 49.3129, lon: -124.3686 },
   "Kamloops": { lat: 50.7022, lon: -120.4443 },
   "Prince George": { lat: 53.8833, lon: -122.6783 },
   "Prince Rupert": { lat: 54.4685, lon: -128.5762 },
