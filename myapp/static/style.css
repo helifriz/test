@@ -113,6 +113,19 @@ button:hover {
   margin-bottom: 10px;
 }
 
+/* Only show an outer border for leg tables */
+.leg-row table {
+  width: 100%;
+  margin-bottom: 10px;
+  border-collapse: collapse;
+  border: 1px solid #ccc;
+}
+
+.leg-row td {
+  border: none;
+  padding: 10px;
+}
+
 #result {
   margin-top: 20px;
   font-size: 16px;
