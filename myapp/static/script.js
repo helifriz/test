@@ -1056,6 +1056,7 @@ async function start() {
     ['calcBtn', 'click', calculateRoute],
     ['foreflightBtn', 'click', openForeFlight],
     ['weatherBtn', 'click', getWeather],
+    ['skyvectorBtn', 'click', openSkyVector],
     ['emailBtn', 'click', composeEmail],
     ['printBtn', 'click', printFlightLog],
     ['manageBtn', 'click', (e) => (window.location.href = e.target.dataset.href)],
