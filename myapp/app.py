@@ -128,5 +128,12 @@ def add_waypoint():
     return jsonify({'status': 'ok'})
 
 
+@app.route('/clearCache', methods=['POST'])
+def clear_cache():
+    """Clear cached templates to force fresh rendering."""
+    app.jinja_env.cache.clear()
+    return jsonify({'status': 'cache cleared'})
+
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=PORT, debug=DEBUG)
