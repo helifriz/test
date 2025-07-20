@@ -891,7 +891,10 @@ function composeEmail() {
 function printFlightLog() {
   const date = new Date().toLocaleDateString();
   const reg = document.getElementById("helicopter").value || "";
-  const flightNum = document.getElementById("flightNum").value || "";
+  const flightNumInput =
+    document.getElementById("flightNum") ||
+    document.getElementById("flight#");
+  const flightNum = flightNumInput ? flightNumInput.value : "";
   const left = document.getElementById("leftPilot").value || "";
   const right = document.getElementById("rightPilot").value || "";
   const seat1a = document.getElementById("seat1a").value || "";
