@@ -900,7 +900,14 @@ function composeEmail() {
       .map((p) => toSkyVectorDMM(p.lat, p.lon))
       .join("+");
     const skyVectorURL = `https://skyvector.com/?fpl=${encodeURIComponent(skyVectorRoute)}`;
-    const subject = encodeURIComponent("Flight Route Planner Links");
+    const flightNumInput =
+      document.getElementById("flightNum") ||
+      document.getElementById("flight#");
+    const flightNum = flightNumInput ? flightNumInput.value.trim() : "";
+    const startWp = points[0].original || "";
+    const endWp = points[points.length - 1].original || "";
+    const subjectStr = `Flight #${flightNum} ${startWp} to ${endWp}`;
+    const subject = encodeURIComponent(subjectStr);
     const body = encodeURIComponent(
       `Here are the route planner links:\n\n` +
         `ForeFlight (Links for each leg):\n${foreflightURLs.map((url, i) => `Leg ${i + 1}: ${url}`).join("\n")}\n\n` +
