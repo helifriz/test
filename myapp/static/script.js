@@ -913,7 +913,7 @@ function composeEmail() {
     const body = encodeURIComponent(
       `Here are the route planner links:\n\n` +
         `ForeFlight (Links for each leg):\n${foreflightURLs.map((url, i) => `Leg ${i + 1}: ${url}`).join("\n")}\n\n` +
-        `ForeFlight (Entire Route):\n${fullForeflightURL}\">Full Route</a>` +       
+        `ForeFlight (Entire Route):\n${fullForeflightURL}\n\n` +       
         `Windy:\n${windyURL}\n\n` +
         `METAR-TAF:\n${metarURL}\n\n` +
         `SkyVector:\n${skyVectorURL}`,
