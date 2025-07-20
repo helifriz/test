@@ -910,20 +910,14 @@ function composeEmail() {
     const subject = encodeURIComponent(subjectStr);
     const fullRoute = points.map(formatForForeFlight).join("+");
     const fullForeflightURL = `foreflightmobile://maps/search?q=${fullRoute}`;
-    const bodyHTML =
-      "Here are the route planner links:" +
-      "\n\n" +
-      "ForeFlight (Links for each leg):\n" +
-      foreflightURLs
-        .map((url, i) => `<a href=\"${url}\">Leg ${i + 1}</a>`)
-        .join("\n") +
-      "\n" +
-      `ForeFlight (Entire Route):\n<a href=\"${fullForeflightURL}\">Full Route</a>` +
-      "\n\n" +
-      `Windy:\n<a href=\"${windyURL}\">${windyURL}</a>\n\n` +
-      `METAR-TAF:\n<a href=\"${metarURL}\">${metarURL}</a>\n\n` +
-      `SkyVector:\n<a href=\"${skyVectorURL}\">${skyVectorURL}</a>`;
-    const body = encodeURIComponent(bodyHTML);
+    const body = encodeURIComponent(
+      `Here are the route planner links:\n\n` +
+        `ForeFlight (Links for each leg):\n${foreflightURLs.map((url, i) => `Leg ${i + 1}: ${url}`).join("\n")}\n\n` +
+        `ForeFlight (Entire Route):\n${fullForeflightURL}\">Full Route</a>` +       
+        `Windy:\n${windyURL}\n\n` +
+        `METAR-TAF:\n${metarURL}\n\n` +
+        `SkyVector:\n${skyVectorURL}`,
+    );
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
   } catch (err) {
     console.error(err);
