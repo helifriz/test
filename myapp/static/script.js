@@ -590,17 +590,6 @@ function calculateRoute() {
     const patientIncluded = leg.querySelector(".patient-checkbox")?.checked;
     const escortIncluded = leg.querySelector(".escort-checkbox")?.checked;
     const fuelUp = parseFloat(leg.querySelector(".legfuel")?.value) || 0;
-    // Apply uplift at the start of the current leg
-    fuel += fuelUp;
-    let lowFuelWarningShown = false;
-    if (fuel < MIN_FUEL) {
-      alert(`Fuel level must be at least ${MIN_FUEL} kg (~20 min) on leg ${i + 1}`);
-      errors.push(`Fuel level must be at least ${MIN_FUEL} kg (~20 min) on leg ${i + 1}`);
-      lowFuelWarningShown = true;
-    } else if (fuel > MAX_FUEL) {
-      alert(`Fuel level must not exceed ${MAX_FUEL} kg on leg ${i + 1}`);
-      errors.push(`Fuel level must not exceed ${MAX_FUEL} kg on leg ${i + 1}`);
-    }
     const patientWeight = patientIncluded ? globalPatientWeight : 0;
     const escortWeight = escortIncluded ? globalEscortWeight : 0;
     // Weight before burning leg fuel
@@ -623,11 +612,12 @@ function calculateRoute() {
       );
     }
     lastWeight = totalWeight;
-    // Burn leg fuel and evaluate destination level
+    // Calculate destination fuel then apply uplift
     fuel -= legFuel;
     const destinationFuel = fuel;
     finalDestinationFuel = destinationFuel;
-    if (destinationFuel < MIN_FUEL && !lowFuelWarningShown) {
+    let lowFuelWarningShown = false;
+    if (destinationFuel < MIN_FUEL) {
       alert(
         `Fuel level at destination must be at least ${MIN_FUEL} kg on leg ${i + 1}`,
       );
@@ -635,6 +625,16 @@ function calculateRoute() {
         `Fuel level at destination must be at least ${MIN_FUEL} kg on leg ${i + 1}`,
       );
       lowFuelWarningShown = true;
+    }
+    fuel += fuelUp;
+    if (fuel < MIN_FUEL && !lowFuelWarningShown) {
+      alert(`Fuel level below ${MIN_FUEL} kg (~20 min) on leg ${i + 2}`);
+      errors.push(
+        `Fuel level must be at least ${MIN_FUEL} kg (~20 min) on leg ${i + 2}`,
+      );
+    } else if (fuel > MAX_FUEL) {
+      alert(`Fuel level must not exceed ${MAX_FUEL} kg on leg ${i + 2}`);
+      errors.push(`Fuel level must not exceed ${MAX_FUEL} kg on leg ${i + 2}`);
     }
     dist += d;
     mins += min;
