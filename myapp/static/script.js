@@ -650,8 +650,8 @@ function calculateRoute() {
       <td>${Math.floor(min / 60)}h ${min % 60}m</td>
       <td>${departureFuel}</td>
       <td>${destinationFuel}</td>
-      <td>$</td>
-      <td>$</td>
+      <td></td>
+      <td></td>
       <td>${totalWeight}</td>
     </tr>`;
     const seat2aTotal = seat2a + escortWeight;
