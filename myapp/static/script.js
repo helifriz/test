@@ -1022,7 +1022,7 @@ function printFlightLog() {
     <table class="info-table tableizer-table">
       <tbody>
         <tr>
-          <th>DATE</th><td style="text-align: center; width: 70px;">${date}</td>
+          <th>DATE</th><td style="text-align: center; width: 90px;">${date}</td>
           <th>REG:</th><td>${reg}</td>
           <th>LEFT SEAT:</th><td>${left}</td>
           <th>RIGHT SEAT:</th><td>${right}</td>
