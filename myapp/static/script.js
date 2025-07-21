@@ -983,7 +983,7 @@ function printFlightLog() {
       <td style="text-align: center;" >:</td>
       <td>&nbsp;</td>
       <td></td>
-      <td>${fuelUplift}</td>
+      <td></td>
       <td>&nbsp;</td>
       <td>${remarks}</td>
       </tr>`;
