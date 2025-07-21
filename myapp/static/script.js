@@ -384,7 +384,7 @@ function addLeg() {
   const newRow = document.createElement("div");
   newRow.className = "leg-row";
   newRow.innerHTML = `
-    <table style="width: 100%; margin-bottom: 10px;">
+    <table class="leg-table">
       <tr>
         <td>
           <label>Leg ${legCount}:</label>
@@ -409,11 +409,11 @@ function addLeg() {
         </td>
       </tr>
       <tr>
-        <td style="padding-left: 20px;">
+        <td class="leg-options">
           <label><input type="checkbox" class="patient-checkbox"> Patient</label>
           <label><input type="checkbox" class="escort-checkbox"> Escort</label>
           <label>Fuel Uplift</label>
-          <input type="number" class="legfuel" style="width: 50px;" min="100" max="904" placeholder="(Kg)">
+          <input type="number" class="legfuel" min="100" max="904" placeholder="(Kg)">
         </td>
       </tr>
     </table>
