@@ -1022,18 +1022,18 @@ function printFlightLog() {
     <table class="info-table tableizer-table">
       <tbody>
         <tr>
-          <th>DATE</th><td style="text-align: center; width: 90px;">${date}</td>
-          <th>REG:</th><td>${reg}</td>
-          <th>LEFT SEAT:</th><td>${left}</td>
-          <th>RIGHT SEAT:</th><td>${right}</td>
-          <th>SHIFT:</th><td style="width:40px;"></td>
+          <th style="font-weight:bold !important;">DATE</th><td style="text-align: center; width: 90px;">${date}</td>
+          <th style="font-weight:bold !important;">REG:</th><td>${reg}</td>
+          <th style="font-weight:bold !important;">LEFT SEAT:</th><td>${left}</td>
+          <th style="font-weight:bold !important;">RIGHT SEAT:</th><td>${right}</td>
+          <th style="font-weight:bold !important;">SHIFT:</th><td style="width:40px;"></td>
         </tr>
         <tr>
-          <td>FLT#</td><td>${flightNum}</td>
-          <td>Seat 1A:</td><td>${seat1a}</td>
-          <td>Seat 2A:</td><td>${seat2a}</td>
-          <td>Seat 1C:</td><td>${seat1c}</td>
-          <td>SQK:</td><td></td>
+          <td style="font-weight:bold !important;">FLT#</td><td>${flightNum}</td>
+          <td style="font-weight:bold !important;">Seat 1A:</td><td>${seat1a}</td>
+          <td style="font-weight:bold !important;">Seat 2A:</td><td>${seat2a}</td>
+          <td style="font-weight:bold !important;">Seat 1C:</td><td>${seat1c}</td>
+          <td style="font-weight:bold !important;">SQK:</td><td></td>
         </tr>
         ${twilightRow}
       </tbody>
