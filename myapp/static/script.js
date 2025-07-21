@@ -1085,7 +1085,7 @@ function printFlightLog() {
     .route-section { flex: 2; }
     .weight-section { flex: 1; }
     .weight-table {
-      font-size: 20px;
+      font-size: 80px;
       width: auto;
       margin: 0;
     }
