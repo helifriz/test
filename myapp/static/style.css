@@ -161,13 +161,13 @@ th {
 
 /* Styling for the generated weight table */
 #weightTable table.weight-table {
-  font-size: 12px; /* shrink table text */
+  font-size: 10px; /* make leg weight table more compact */
   width: auto; /* override global 95% width */
 }
 
 #weightTable table.weight-table th,
 #weightTable table.weight-table td {
-  padding: 6px; /* tighter spacing */
+  padding: 4px; /* tighter spacing */
 }
 
 #weightTable table.weight-table th:first-child,
@@ -177,7 +177,7 @@ th {
 
 #weightTable table.weight-table th:not(:first-child),
 #weightTable table.weight-table td:not(:first-child) {
-  width: 45px;
+  width: 35px;
 }
 
 /* Match flight plan styling */
