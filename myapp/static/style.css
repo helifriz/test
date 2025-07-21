@@ -1,3 +1,10 @@
+:root {
+  --route-table-font-size: 8px;
+  --weight-table-font-size: 10px;
+  --info-table-font-size: 8px;
+  --legs-table-font-size: 8px;
+}
+
 body {
   font-family: "Roboto", sans-serif;
   font-size: 16px;
@@ -168,7 +175,7 @@ th {
 /* Generated Weight Table Styles */
 /* ============================= */
 #weightTable table.weight-table {
-  font-size: 10px; /* make leg weight table more compact */
+  font-size: var(--weight-table-font-size); /* make leg weight table more compact */
   width: auto; /* override global 95% width */
 }
 
@@ -213,7 +220,7 @@ th {
 }
 
 .weight-section .weight-table {
-  font-size: 15px;
+  font-size: var(--weight-table-font-size);
   width: auto;
   margin: 0;
 }
@@ -237,7 +244,6 @@ th {
 /* Route & Print Table Styles */
 /* ============================= */
 table.tableizer-table {
-  font-size: 8px;
   border: 1px solid #ccc;
   font-family: "Roboto", Arial, Helvetica, sans-serif;
   table-layout: fixed;
@@ -260,6 +266,18 @@ table.tableizer-table {
   color: #000;
 }
 
+.route-table {
+  font-size: var(--route-table-font-size);
+}
+.weight-table {
+  font-size: var(--weight-table-font-size);
+}
+.info-table {
+  font-size: var(--info-table-font-size);
+}
+.legs-table {
+  font-size: var(--legs-table-font-size);
+}
 .spacer {
   border: none;
   visibility: hidden;
