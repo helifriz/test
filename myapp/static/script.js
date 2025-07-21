@@ -978,9 +978,7 @@ function printFlightLog() {
     const fuelUpliftVal = leg.fuelUp;
     const litres = fuelUpliftVal ? Math.round(fuelUpliftVal / 0.8) : "";
     const fuelUplift = fuelUpliftVal ? fuelUpliftVal : "&nbsp;";
-    const remarks = fuelUpliftVal
-      ? `${fuelUpliftVal}kg/${litres}litres`
-      : "";
+    const remarks = "";
     legRows += `<tr><td>${i + 1}</td>
       <td>${leg.from}</td>
       <td>${leg.to}</td>
