@@ -56,6 +56,7 @@ def test_add_waypoint(client):
         'regions': ['X'],
         'lat': 1.0,
         'lon': 2.0,
+        'elev': 100,
     }
     resp = client.post('/addWaypoint', json=payload)
     assert resp.status_code == 200
@@ -67,3 +68,4 @@ def test_add_waypoint(client):
     assert wp['lat'] == 1.0
     assert wp['lon'] == 2.0
     assert wp['regions'] == ['X']
+    assert wp['elev'] == 100

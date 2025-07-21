@@ -646,10 +646,14 @@ function calculateRoute() {
     mins += min;
     totalFuel += legFuel;
     const upliftLitres = fuelUp ? Math.round(fuelUp / 0.8) : "";
+    const destElev =
+      toCode !== "SCENE" && waypoints[toCode] && waypoints[toCode].elev !== undefined
+        ? waypoints[toCode].elev
+        : "";
     table += `<tr>
       <td>${i + 1}</td>
       <td>${fName} ➝ ${tName}</td>
-      <td></td>
+      <td>${destElev}</td>
       <td>${h.toString().padStart(3, "0")}°</td>
       <td>${d}</td>
       <td>${Math.floor(min / 60)}h ${min % 60}m</td>

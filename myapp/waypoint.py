@@ -13,7 +13,8 @@ def add_waypoint():
     regions = payload.get('regions') or []
     lat = payload.get('lat')
     lon = payload.get('lon')
-    if not code or not name or not regions or lat is None or lon is None:
+    elev = payload.get('elev')
+    if not code or not name or not regions or lat is None or lon is None or elev is None:
         return jsonify({'error': 'Invalid data'}), 400
     data = load_data()
     if code in data.get('waypoints', {}):
@@ -23,6 +24,7 @@ def add_waypoint():
         'regions': regions,
         'lat': lat,
         'lon': lon,
+        'elev': elev,
     }
     add_entry('waypoints', waypoint, code=code)
     return jsonify({'status': 'ok'})

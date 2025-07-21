@@ -61,19 +61,21 @@ function addWaypoint() {
   const regionText = document.getElementById('waypointRegion').value.trim();
   const lat = parseFloat(document.getElementById('waypointLat').value);
   const lon = parseFloat(document.getElementById('waypointLon').value);
-  if (!code || !name || !regionText || isNaN(lat) || isNaN(lon)) {
+  const elev = parseFloat(document.getElementById('waypointElev').value);
+  if (!code || !name || !regionText || isNaN(lat) || isNaN(lon) || isNaN(elev)) {
     alert('Please fill out all waypoint fields');
     return;
   }
   const regions = regionText.split(',').map(r => r.trim());
-  postData('/addWaypoint', { code, name, regions, lat, lon }, () => {
+  postData('/addWaypoint', { code, name, regions, lat, lon, elev }, () => {
     document.getElementById('waypointCode').value = '';
     document.getElementById('waypointName').value = '';
     document.getElementById('waypointRegion').value = '';
     document.getElementById('waypointLat').value = '';
     document.getElementById('waypointLon').value = '';
+    document.getElementById('waypointElev').value = '';
     alert('Waypoint saved');
-    saveExtra('extraWaypoints', { code, name, regions, lat, lon });
+    saveExtra('extraWaypoints', { code, name, regions, lat, lon, elev });
   });
 }
 
