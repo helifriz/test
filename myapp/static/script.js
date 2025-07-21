@@ -1082,7 +1082,7 @@ function printFlightLog() {
     .weight-table {
       font-size: 12px;
       width: auto;
-      margin: 20px 0;
+      margin: 0;
     }
     .weight-table th,
     .weight-table td {
