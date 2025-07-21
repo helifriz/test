@@ -1013,7 +1013,7 @@ function printFlightLog() {
 
 // fltplan Table 1 //
   const infoTable = `
-    <table class="tableizer-table">
+    <table class="info-table tableizer-table">
       <tbody>
         <tr>
           <th>DATE</th><td style="text-align: center; width: 60px;">${date}</td>
@@ -1035,7 +1035,7 @@ function printFlightLog() {
 
   // fltplan Table 2 //
   const legsTable = `
-    <table class="tableizer-table">
+    <table class="legs-table tableizer-table">
       <tbody>
         <tr><td>LEG</td>
         <td>ORIGIN</td>

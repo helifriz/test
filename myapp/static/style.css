@@ -188,6 +188,52 @@ th {
 }
 
 /* ============================= */
+/* Print Layout Components */
+/* ============================= */
+.info-table {
+  margin-bottom: 4px;
+}
+
+.legs-table {
+  margin-bottom: 4px;
+}
+
+.print-row {
+  display: flex;
+  gap: 0;
+  align-items: flex-start;
+}
+
+.route-section {
+  flex: 2;
+}
+
+.weight-section {
+  flex: 1;
+}
+
+.weight-section .weight-table {
+  font-size: 15px;
+  width: auto;
+  margin: 0;
+}
+
+.weight-section .weight-table th,
+.weight-section .weight-table td {
+  padding: 4px;
+}
+
+.weight-section .weight-table th:first-child,
+.weight-section .weight-table td:first-child {
+  width: 20px;
+}
+
+.weight-section .weight-table th:not(:first-child),
+.weight-section .weight-table td:not(:first-child) {
+  width: 35px;
+}
+
+/* ============================= */
 /* Route & Print Table Styles */
 /* ============================= */
 table.tableizer-table {
