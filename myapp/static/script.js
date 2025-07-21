@@ -942,6 +942,7 @@ function printFlightLog() {
       const toSel = leg.querySelector(".to");
       const fromCode = fromSel.dataset.code || fromSel.value.split(/[\s-]/)[0] || "";
       const toCode = toSel.dataset.code || toSel.value.split(/[\s-]/)[0] || "";
+      const fuelUp = parseFloat(leg.querySelector(".legfuel")?.value) || 0;
       let from = fromCode;
       let to = toCode;
 
@@ -963,12 +964,18 @@ function printFlightLog() {
         if (tName) to = `${toCode}-${tName}`;
       }
 
-      legs.push({ from, to });
+      legs.push({ from, to, fuelUp });
     }
   });
   let legRows = "";
   for (let i = 0; i < 10; i++) {
-    const leg = legs[i] || { from: "&nbsp;", to: "&nbsp;" };
+    const leg = legs[i] || { from: "&nbsp;", to: "&nbsp;", fuelUp: 0 };
+    const fuelUpliftVal = leg.fuelUp;
+    const litres = fuelUpliftVal ? Math.round(fuelUpliftVal / 0.8) : "";
+    const fuelUplift = fuelUpliftVal ? fuelUpliftVal : "&nbsp;";
+    const remarks = fuelUpliftVal
+      ? `${fuelUpliftVal}kg/${litres}litres`
+      : "";
     legRows += `<tr><td>${i + 1}</td>
       <td>${leg.from}</td>
       <td>${leg.to}</td>
@@ -976,9 +983,9 @@ function printFlightLog() {
       <td style="text-align: center;" >:</td>
       <td>&nbsp;</td>
       <td></td>
+      <td>${fuelUplift}</td>
       <td>&nbsp;</td>
-      <td>&nbsp;</td>
-      <td></td>
+      <td>${remarks}</td>
       </tr>`;
   }
   const weightSection = latestWeightTable
