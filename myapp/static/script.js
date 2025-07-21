@@ -1085,13 +1085,13 @@ function printFlightLog() {
     .route-section { flex: 2; }
     .weight-section { flex: 1; }
     .weight-table {
-      font-size: 12px;
+      font-size: 10px;
       width: auto;
       margin: 0;
     }
     .weight-table th,
     .weight-table td {
-      padding: 6px;
+      padding: 4px;
     }
     .weight-table th:first-child,
     .weight-table td:first-child {
@@ -1099,7 +1099,7 @@ function printFlightLog() {
     }
     .weight-table th:not(:first-child),
     .weight-table td:not(:first-child) {
-      width: 45px;
+      width: 35px;
     }
     </style>
     ${infoTable}
