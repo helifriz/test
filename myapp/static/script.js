@@ -1022,7 +1022,7 @@ function printFlightLog() {
     <table class="info-table tableizer-table">
       <tbody>
         <tr>
-          <th>DATE</th><td style="text-align: center; width: 60px;">${date}</td>
+          <th>DATE</th><td style="text-align: center; width: 70px;">${date}</td>
           <th>REG:</th><td>${reg}</td>
           <th>LEFT SEAT:</th><td>${left}</td>
           <th>RIGHT SEAT:</th><td>${right}</td>
@@ -1052,7 +1052,7 @@ function printFlightLog() {
         <td style="width:30px;" >FLT</td>
         <td>FUEL UPLIFT</td>
         <td>SOULS</td>
-        <td style="text-align: center; width: 120px;">REMARKS</td>
+        <td style="text-align: center; width: 140px;">REMARKS</td>
         </tr>
         ${legRows}
         <tr><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td>
