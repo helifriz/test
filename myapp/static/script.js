@@ -540,7 +540,7 @@ function calculateRoute() {
     <th>Ltr</th>
   </tr>
 </thead>
-</table>
+  <tbody>
 `;
   const legWeights = [];
   let finalDestinationFuel = fuel;
