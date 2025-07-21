@@ -1046,13 +1046,13 @@ function printFlightLog() {
         <tr><td>LEG</td>
         <td>ORIGIN</td>
         <td>DESTINATION</td>
-        <td style="width:50px;" >START</td>
-        <td style="width:50px;" >STOP</td>
-        <td style="width:30px;" >AIR</td>
-        <td style="width:30px;" >FLT</td>
+        <td style="width:60px;" >START</td>
+        <td style="width:60px;" >STOP</td>
+        <td style="width:40px;" >AIR</td>
+        <td style="width:40px;" >FLT</td>
         <td>FUEL UPLIFT</td>
         <td>SOULS</td>
-        <td style="text-align: center; width: 140px;">REMARKS</td>
+        <td style="text-align: center; width: 160px;">REMARKS</td>
         </tr>
         ${legRows}
         <tr><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td>
