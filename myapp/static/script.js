@@ -642,6 +642,7 @@ function calculateRoute() {
     dist += d;
     mins += min;
     totalFuel += legFuel;
+    const upliftLitres = fuelUp ? Math.round(fuelUp / 0.8) : "";
     table += `<tr>
       <td>${i + 1}</td>
       <td>${fName} ➝ ${tName}</td>
@@ -650,8 +651,8 @@ function calculateRoute() {
       <td>${Math.floor(min / 60)}h ${min % 60}m</td>
       <td>${departureFuel}</td>
       <td>${destinationFuel}</td>
-      <td></td>
-      <td></td>
+      <td>${fuelUp || ""}</td>
+      <td>${upliftLitres}</td>
       <td>${totalWeight}</td>
     </tr>`;
     const seat2aTotal = seat2a + escortWeight;
