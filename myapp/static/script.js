@@ -413,7 +413,7 @@ function addLeg() {
           <label><input type="checkbox" class="patient-checkbox"> Patient</label>
           <label><input type="checkbox" class="escort-checkbox"> Escort</label>
           <label>Fuel Uplift</label>
-          <input type="number" class="legfuel" min="100" max="904" placeholder="(Kg)">
+          <input type="number" class="legfuel" min="100" max="904" placeholder="(Kg)" style="width: 50px">
         </td>
       </tr>
     </table>
