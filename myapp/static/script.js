@@ -650,6 +650,7 @@ function calculateRoute() {
       <td>${i + 1}</td>
       <td>${fName} ➝ ${tName}</td>
       <td>${d}</td>
+      <td></td>
       <td>${h.toString().padStart(3, "0")}°</td>
       <td>${Math.floor(min / 60)}h ${min % 60}m</td>
       <td>${departureFuel}</td>
