@@ -1048,6 +1048,9 @@ function printFlightLog() {
 
   const html = `
     <style type="text/css">
+    @page {
+  size: landscape;
+}
       table.tableizer-table {
       font-size: 8px; border:
       1px solid #CCC;
