@@ -1054,60 +1054,25 @@ function printFlightLog() {
       </tbody>
     </table>`;
 
+  const rootStyles = getComputedStyle(document.documentElement);
+  const routeFontSize = rootStyles.getPropertyValue("--route-table-font-size").trim();
+  const weightFontSize = rootStyles.getPropertyValue("--weight-table-font-size").trim();
+  const infoFontSize = rootStyles.getPropertyValue("--info-table-font-size").trim();
+  const legsFontSize = rootStyles.getPropertyValue("--legs-table-font-size").trim();
+
   const html = `
+    <link rel="stylesheet" href="/static/style.css">
     <style type="text/css">
     @media print {
       @page {
         size: landscape;
       }
     }
-      table.tableizer-table {
-      font-size: 8px; border:
-      1px solid #CCC;
-      font-family: "Roboto", Arial, Helvetica, sans-serif;
-      table-layout: auto;
-      border-collapse: collapse;
-      border-spacing: 0;
-      }
-      .tableizer-table th,
-      .tableizer-table td {
-        border: 1px solid #000;
-        padding: 4px;
-        margin: 0;
-        font-weight: normal !important;
-      }
-    .tableizer-table th {
-      background-color: #FFF;
-      color:           #000;
-    }
-    .spacer {
-      border: none;
-      visibility: hidden;
-      padding: 0;
-    }
-    .print-row {
-      display: flex;
-      gap: 0;
-      align-items: flex-start;
-    }
-    .route-section { flex: 2; }
-    .weight-section { flex: 1; }
-    .weight-table {
-      font-size: 15px;
-      width: auto;
-      margin: 0;
-    }
-    .weight-table th,
-    .weight-table td {
-      padding: 4px;
-    }
-    .weight-table th:first-child,
-    .weight-table td:first-child {
-      width: 20px;
-    }
-    .weight-table th:not(:first-child),
-    .weight-table td:not(:first-child) {
-      width: 35px;
+    :root {
+      --route-table-font-size: ${routeFontSize};
+      --weight-table-font-size: ${weightFontSize};
+      --info-table-font-size: ${infoFontSize};
+      --legs-table-font-size: ${legsFontSize};
     }
     </style>
     ${infoTable}
