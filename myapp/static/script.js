@@ -530,7 +530,8 @@ function calculateRoute() {
     <th rowspan="2">Leg</th>
     <th rowspan="2">From ➝ To</th>
     <th rowspan="2">NM</th>
-    <th rowspan="2">Heading</th>
+    <th rowspan="2">Dest Elev</th>
+    <th rowspan="2">Track</th>
     <th rowspan="2">Time</th>
     <th colspan="2">Fuel (kg)</th>
     <th colspan="2">Est Uplift</th>
