@@ -113,17 +113,25 @@ button:hover {
   margin-bottom: 10px;
 }
 
-/* Only show an outer border for leg tables */
-.leg-row table {
+/* Styling for the leg entry tables */
+.leg-table {
   width: 100%;
   margin-bottom: 10px;
   border-collapse: collapse;
   border: 1px solid #ccc;
 }
 
-.leg-row td {
+.leg-table td {
   border: none;
   padding: 10px;
+}
+
+.leg-options {
+  padding-left: 20px;
+}
+
+.legfuel {
+  width: 50px;
 }
 
 #result {
