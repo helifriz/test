@@ -1011,6 +1011,12 @@ function printFlightLog() {
        </tr>`
     : "";
 
+  const rootStyles = getComputedStyle(document.documentElement);
+  const routeFont = rootStyles.getPropertyValue("--route-table-font-size").trim() || "8px";
+  const weightFont = rootStyles.getPropertyValue("--weight-table-font-size").trim() || "10px";
+  const infoFont = rootStyles.getPropertyValue("--info-table-font-size").trim() || "8px";
+  const legsFont = rootStyles.getPropertyValue("--legs-table-font-size").trim() || "8px";
+
 // fltplan Table 1 //
   const infoTable = `
     <table class="info-table tableizer-table">
@@ -1062,8 +1068,7 @@ function printFlightLog() {
       }
     }
       table.tableizer-table {
-      font-size: 8px; border:
-      1px solid #CCC;
+      border: 1px solid #CCC;
       font-family: "Roboto", Arial, Helvetica, sans-serif;
       table-layout: auto;
       border-collapse: collapse;
@@ -1092,11 +1097,14 @@ function printFlightLog() {
     }
     .route-section { flex: 2; }
     .weight-section { flex: 1; }
+    .route-table { font-size: ${routeFont}; }
     .weight-table {
-      font-size: 15px;
+      font-size: ${weightFont};
       width: auto;
       margin: 0;
     }
+    .info-table { font-size: ${infoFont}; }
+    .legs-table { font-size: ${legsFont}; }
     .weight-table th,
     .weight-table td {
       padding: 4px;
