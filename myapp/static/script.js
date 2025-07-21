@@ -649,9 +649,9 @@ function calculateRoute() {
     table += `<tr>
       <td>${i + 1}</td>
       <td>${fName} ➝ ${tName}</td>
-      <td>${d}</td>
       <td></td>
       <td>${h.toString().padStart(3, "0")}°</td>
+      <td>${d}</td>
       <td>${Math.floor(min / 60)}h ${min % 60}m</td>
       <td>${departureFuel}</td>
       <td>${destinationFuel}</td>
@@ -683,7 +683,7 @@ function calculateRoute() {
   });
   table += `<tr>
     <th colspan="2">TOTAL</th>
-    <th>${dist}</th><th>-</th>
+    <th></th><th>-</th><th>${dist}</th>
     <th>${Math.floor(mins / 60)}h ${mins % 60}m</th>
     <th>-</th><th>-</th><th>-</th><th>-</th><th>-</th>
   </tr></table>`;
