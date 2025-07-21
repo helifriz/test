@@ -1,8 +1,8 @@
 :root {
   --route-table-font-size: 8px;
-  --weight-table-font-size: 10px;
-  --info-table-font-size: 8px;
-  --legs-table-font-size: 20px;
+  --weight-table-font-size: 8px;
+  --info-table-font-size: 15px;
+  --legs-table-font-size: 15px;
 }
 
 body {
