@@ -1,64 +1,24 @@
-from flask import Flask, render_template, request, jsonify
+from flask import Flask, render_template, jsonify
 import os
-import json
-import tempfile
+
+from .data_utils import load_data
+
+from .pilot import pilot_bp
+from .medic import medic_bp
+from .waypoint import waypoint_bp
 
 app = Flask(__name__)
 
-# Path to the shared JSON data file. Use env variable to override
-DATA_FILE = os.environ.get(
-    'DATA_FILE', os.path.join(os.path.dirname(__file__), 'data.json')
-)
+# Server configuration
 PORT = int(os.environ.get('PORT', '8080'))
-# Determine debug mode from environment. Any truthy value enables it.
 DEBUG = os.environ.get('DEBUG', 'False').lower() in (
     '1', 'true', 't', 'yes', 'on'
 )
 
-# Default structure for a new data file
-DEFAULT_DATA = {
-    'HELICOPTERS': [],
-    'PILOTS': [],
-    'MEDICS': [],
-    'waypoints': {},
-    'MAX_FUEL': 0,
-    'MIN_FUEL': 0,
-    'MAX_TAKEOFF_WEIGHT': 0,
-}
-
-
-def load_data():
-    """Load the shared JSON data file or initialize it if missing."""
-    if not os.path.exists(DATA_FILE):
-        save_data(DEFAULT_DATA)
-    try:
-        with open(DATA_FILE, 'r') as f:
-            return json.load(f)
-    except (json.JSONDecodeError, OSError):
-        save_data(DEFAULT_DATA)
-        with open(DATA_FILE, 'r') as f:
-            return json.load(f)
-
-
-def save_data(data):
-    """Atomically save the shared JSON data file."""
-    directory = os.path.dirname(DATA_FILE)
-    os.makedirs(directory, exist_ok=True)
-    fd, tmp_path = tempfile.mkstemp(dir=directory)
-    with os.fdopen(fd, 'w') as tmp:
-        json.dump(data, tmp, indent=2)
-    os.replace(tmp_path, DATA_FILE)
-
-
-def add_entry(section, item, code=None):
-    data = load_data()
-    if section == 'waypoints':
-        if not code:
-            raise ValueError('Waypoint code required')
-        data['waypoints'][code] = item
-    else:
-        data[section].append(item)
-    save_data(data)
+# Register route blueprints
+app.register_blueprint(pilot_bp)
+app.register_blueprint(medic_bp)
+app.register_blueprint(waypoint_bp)
 
 
 @app.route('/')
@@ -75,57 +35,6 @@ def manage():
 def get_data():
     """Return the full data set as JSON."""
     return jsonify(load_data())
-
-
-@app.route('/addPilot', methods=['POST'])
-def add_pilot():
-    payload = request.get_json(force=True)
-    name = (payload.get('name') or '').strip()
-    weight = payload.get('weight')
-    if not name or weight is None:
-        return jsonify({'error': 'Invalid data'}), 400
-    data = load_data()
-    if any(p.get('name', '').lower() == name.lower() for p in data.get('PILOTS', [])):
-        return jsonify({'error': 'Pilot already exists'}), 400
-    add_entry('PILOTS', {'name': name, 'weight': weight})
-    return jsonify({'status': 'ok'})
-
-
-@app.route('/addMedic', methods=['POST'])
-def add_medic():
-    payload = request.get_json(force=True)
-    name = (payload.get('name') or '').strip()
-    weight = payload.get('weight')
-    if not name or weight is None:
-        return jsonify({'error': 'Invalid data'}), 400
-    data = load_data()
-    if any(m.get('name', '').lower() == name.lower() for m in data.get('MEDICS', [])):
-        return jsonify({'error': 'Medic already exists'}), 400
-    add_entry('MEDICS', {'name': name, 'weight': weight})
-    return jsonify({'status': 'ok'})
-
-
-@app.route('/addWaypoint', methods=['POST'])
-def add_waypoint():
-    payload = request.get_json(force=True)
-    code = (payload.get('code') or '').strip().upper()
-    name = (payload.get('name') or '').strip()
-    regions = payload.get('regions') or []
-    lat = payload.get('lat')
-    lon = payload.get('lon')
-    if not code or not name or not regions or lat is None or lon is None:
-        return jsonify({'error': 'Invalid data'}), 400
-    data = load_data()
-    if code in data.get('waypoints', {}):
-        return jsonify({'error': 'Waypoint already exists'}), 400
-    waypoint = {
-        'name': name,
-        'regions': regions,
-        'lat': lat,
-        'lon': lon,
-    }
-    add_entry('waypoints', waypoint, code=code)
-    return jsonify({'status': 'ok'})
 
 
 @app.route('/clearCache', methods=['POST'])
