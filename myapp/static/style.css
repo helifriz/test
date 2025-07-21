@@ -113,7 +113,9 @@ button:hover {
   margin-bottom: 10px;
 }
 
-/* Styling for the leg entry tables */
+/* ============================= */
+/* Leg Entry Table Styles */
+/* ============================= */
 .leg-table {
   width: 100%;
   margin-bottom: 10px;
@@ -139,6 +141,9 @@ button:hover {
   font-size: 16px;
 }
 
+/* ============================= */
+/* Generic Table Styles */
+/* ============================= */
 table {
   margin: 20px auto;
   border-collapse: collapse;
@@ -159,7 +164,9 @@ th {
   color: #333;
 }
 
-/* Styling for the generated weight table */
+/* ============================= */
+/* Generated Weight Table Styles */
+/* ============================= */
 #weightTable table.weight-table {
   font-size: 10px; /* make leg weight table more compact */
   width: auto; /* override global 95% width */
@@ -180,7 +187,9 @@ th {
   width: 35px;
 }
 
-/* Match flight plan styling */
+/* ============================= */
+/* Route & Print Table Styles */
+/* ============================= */
 table.tableizer-table {
   font-size: 8px;
   border: 1px solid #ccc;
