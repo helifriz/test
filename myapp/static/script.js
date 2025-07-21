@@ -531,14 +531,13 @@ function calculateRoute() {
     <th rowspan="2">Time</th>
     <th colspan="2">Fuel (kg)</th>
     <th colspan="2">Est Uplift</th>
-    <th>Takeoff Weight</th>
+    <th rowspan="2">Takeoff Weight</th>
   </tr>
   <tr>
     <th>Depart</th>
     <th>Dest</th>
     <th>Kg</th>
     <th>Ltr</th>
-    <th>Kg</th>
   </tr>
 </thead>
   <tbody>
