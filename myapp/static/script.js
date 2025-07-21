@@ -522,24 +522,24 @@ function calculateRoute() {
     lastWeight = 0;
   let table = `
 <table class="route-table tableizer-table">
-  <tbody>
-    <tr>
-      <th rowspan="2">Leg</th>
-      <th rowspan="2">From ➝ To</th>
-      <th rowspan="2">NM</th>
-      <th rowspan="2">Heading</th>
-      <th rowspan="2">Time</th>
-      <th colspan="2">Fuel (kg)</th>
-      <th colspan="2">Est Uplift</th>
-      <th rowspan="2">Takeoff Weight</th>
-    </tr>
-    <tr>
-      <th>Depart</th>
-      <th>Dest</th>
-      <th>Kg</th>
-      <th>Ltr</th>
-    </tr>
-  </tbody>
+  <thead>
+  <tr>
+    <th rowspan="2">Leg</th>
+    <th rowspan="2">From ➝ To</th>
+    <th rowspan="2">NM</th>
+    <th rowspan="2">Heading</th>
+    <th rowspan="2">Time</th>
+    <th colspan="2">Fuel (kg)</th>
+    <th colspan="2">Est Uplift</th>
+    <th rowspan="2">Takeoff Weight</th>
+  </tr>
+  <tr>
+    <th>Depart</th>
+    <th>Dest</th>
+    <th>Kg</th>
+    <th>Ltr</th>
+  </tr>
+</thead>
 </table>
 `;
   const legWeights = [];
