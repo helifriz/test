@@ -520,6 +520,9 @@ function calculateRoute() {
     mins = 0,
     totalFuel = 0,
     lastWeight = 0;
+    
+// Route Table //
+
   let table = `
 <table class="route-table tableizer-table">
   <thead>
@@ -682,6 +685,9 @@ function calculateRoute() {
     <th>${Math.floor(mins / 60)}h ${mins % 60}m</th>
     <th>-</th><th>-</th><th>-</th><th>-</th><th>-</th>
   </tr></table>`;
+  
+// Leg Weight Table//
+
   let weightTable =
     '<table class="weight-table tableizer-table"><thead><tr><th></th>';
   legWeights.forEach((_, idx) => {
@@ -1005,6 +1011,7 @@ function printFlightLog() {
        </tr>`
     : "";
 
+// fltplan Table 1 //
   const infoTable = `
     <table class="tableizer-table">
       <tbody>
@@ -1026,6 +1033,7 @@ function printFlightLog() {
       </tbody>
     </table>`;
 
+  // fltplan Table 2 //
   const legsTable = `
     <table class="tableizer-table">
       <tbody>
