@@ -1092,7 +1092,7 @@ function printFlightLog() {
     }
     .print-row {
       display: flex;
-      gap: 0;
+      gap: 12px;
       align-items: flex-start;
     }
     .route-section { flex: 2; }
@@ -1120,7 +1120,7 @@ function printFlightLog() {
     </style>
     ${infoTable}
     ${legsTable}
-    <div class="print-row">
+    <div style="margin-top: 12px;" class="print-row">
       ${weightSection}
       ${routeSection}
     </div>`;
