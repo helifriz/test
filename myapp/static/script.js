@@ -928,7 +928,7 @@ function composeEmail() {
     console.error(err);
   }
 }
-function buildFlightLogHTML() {
+function printFlightLog() {
   const date = new Date().toLocaleDateString();
   const reg = document.getElementById("helicopter").value || "";
   const flightNumInput =
@@ -1103,30 +1103,10 @@ function buildFlightLogHTML() {
       ${weightSection}
       ${routeSection}
     </div>`;
-  return html;
-}
-
-function printFlightLog() {
-  const html = buildFlightLogHTML();
   const win = window.open("", "_blank");
   win.document.write(html);
   win.document.close();
   win.print();
-}
-
-function downloadFlightPlan() {
-  const html = buildFlightLogHTML();
-  if (window.jspdf && window.jspdf.jsPDF) {
-    const { jsPDF } = window.jspdf;
-    const doc = new jsPDF({ unit: 'pt', format: 'a4' });
-    doc.html(html, {
-      callback: (doc) => doc.save('flight_plan.pdf'),
-      x: 10,
-      y: 10,
-    });
-  } else {
-    alert('Unable to load PDF library');
-  }
 }
 async function start() {
   await fetchData();
@@ -1148,7 +1128,6 @@ async function start() {
     ['weatherBtn', 'click', getWeather],
     ['skyvectorBtn', 'click', openSkyVector],
     ['emailBtn', 'click', composeEmail],
-    ['downloadBtn', 'click', downloadFlightPlan],
     ['printBtn', 'click', printFlightLog],
     ['manageBtn', 'click', (e) => (window.location.href = e.target.dataset.href)],
     ['region-select', 'change', populateAllDropdowns],
