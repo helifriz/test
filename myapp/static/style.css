@@ -1,6 +1,6 @@
 :root {
-  --route-table-font-size: 8px;
-  --weight-table-font-size: 8px;
+  --route-table-font-size: 10px;
+  --weight-table-font-size: 10px;
   --info-table-font-size: 13px;
   --legs-table-font-size: 13px;
 }
