@@ -253,7 +253,11 @@ function setupWaypointSearch(input) {
       "SCENE",
       ...currentWaypointCodes.filter((code) => {
         const wp = waypoints[code];
-        if (region !== "ALL" && !wp.regions.includes(region)) return false;
+        if (
+          region !== "ALL" &&
+          !wp.regions.some((r) => r.toLowerCase() === region.toLowerCase())
+        )
+          return false;
         return (
           code.toLowerCase().includes(term) ||
           wp.name.toLowerCase().includes(term)
@@ -293,9 +297,11 @@ function setupWaypointInputs() {
 
 function populateDropdown(region) {
   currentWaypointCodes = Object.keys(waypoints)
-    .filter(
-      (code) => region === "ALL" || waypoints[code].regions.includes(region),
-    )
+    .filter((code) => {
+      if (region === "ALL") return true;
+      const regs = waypoints[code].regions || [];
+      return regs.some((r) => r.toLowerCase() === region.toLowerCase());
+    })
     .sort((a, b) => waypoints[a].name.localeCompare(waypoints[b].name));
 }
 function populateAllDropdowns() {
@@ -307,7 +313,8 @@ function populateAllDropdowns() {
       code &&
       code !== "SCENE" &&
       (waypoints[code] === undefined ||
-        (region !== "ALL" && !waypoints[code].regions.includes(region)))
+        (region !== "ALL" &&
+          !waypoints[code].regions.some((r) => r.toLowerCase() === region.toLowerCase())))
     ) {
       input.value = "";
       input.dataset.code = "";
