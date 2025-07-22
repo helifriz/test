@@ -1,6 +1,9 @@
 from flask import Blueprint, request, jsonify
 
-from .data_utils import load_data, add_entry
+try:
+    from .data_utils import load_data, add_entry
+except ImportError:
+    from data_utils import load_data, add_entry
 
 medic_bp = Blueprint('medic_bp', __name__)
 

@@ -1,6 +1,9 @@
 from flask import Blueprint, request, jsonify
 
-from .data_utils import load_data, add_entry
+try:
+    from .data_utils import load_data, add_entry
+except ImportError:  # Allow running as standalone module
+    from data_utils import load_data, add_entry
 
 pilot_bp = Blueprint('pilot_bp', __name__)
 
