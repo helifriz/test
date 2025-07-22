@@ -850,9 +850,7 @@ function toSkyVectorDMM(lat, lon) {
   function convert(value, isLat) {
     const abs = Math.abs(value);
     const deg = Math.floor(abs);
-    const min = Math.round((abs - deg) * 60)
-      .toString()
-      .padStart(2, "0");
+    const min = ((abs - deg) * 60).toFixed(2).padStart(5, "0");
     const dir = isLat ? (value >= 0 ? "N" : "S") : value >= 0 ? "E" : "W";
     const degStr = deg.toString().padStart(isLat ? 2 : 3, "0");
     return `${degStr}${min}${dir}`;
