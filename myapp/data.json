@@ -20,6 +20,8 @@
   "MAX_FUEL": 904,
   "MIN_FUEL": 100,
   "MAX_TAKEOFF_WEIGHT": 4800,
+  
+  // Waypoints
   "waypoints": {
   "CAB5": {
     "name": "Abbotsford (Regional Hospital)",
