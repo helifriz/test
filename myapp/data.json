@@ -1354,15 +1354,6 @@
     "lon": -123.0184,
     "elev": 37
   },
-  "CSM7": {
-    "name": "Abbotsford (Sumas Mountain) Heliport",
-    "regions": [
-      "ALL"
-    ],
-    "lat": 49.1053,
-    "lon": -122.1974,
-    "elev": 1067
-  },
   "CSR6": {
     "name": "Sonora Resort Heliport",
     "regions": [
@@ -1391,7 +1382,7 @@
     "elev": 1539
   },
   "CVS3": {
-    "name": "Surrey Memorial Hospital Helipad",
+    "name": "Surrey Memorial Hospital",
     "regions": [
       "ALL"
     ],
@@ -1407,42 +1398,6 @@
     "lat": 49.8674,
     "lon": -119.5792,
     "elev": 1640
-  },
-  "CWCV": {
-    "name": "Nootka Lightstation Helipad",
-    "regions": [
-      "ALL"
-    ],
-    "lat": 49.5922,
-    "lon": -126.6164,
-    "elev": 48
-  },
-  "CWFM": {
-    "name": "Chatham Point Light Station Helipad",
-    "regions": [
-      "ALL"
-    ],
-    "lat": 50.3331,
-    "lon": -125.4453,
-    "elev": 75
-  },
-  "CWIF": {
-    "name": "Quatsino Light Station Helipad",
-    "regions": [
-      "ALL"
-    ],
-    "lat": 50.4417,
-    "lon": -128.0315,
-    "elev": 35
-  },
-  "CWZM": {
-    "name": "Boat Bluff Lighthouse Helipad",
-    "regions": [
-      "ALL"
-    ],
-    "lat": 52.6437,
-    "lon": -128.5246,
-    "elev": 44
   },
   "CYAL": {
     "name": "Alert Bay Airport",
@@ -1462,15 +1417,6 @@
     "lon": -125.7756,
     "elev": 80,
     "Freq": 132.9
-  },
-  "CYB3": {
-    "name": "Nelson/Baylock Estate Heliport",
-    "regions": [
-      "ALL"
-    ],
-    "lat": 49.5447,
-    "lon": -117.2606,
-    "elev": 1830
   },
   "CYBD": {
     "name": "Bella Coola Airport",
