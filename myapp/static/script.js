@@ -847,10 +847,6 @@ function openSkyVector() {
   }
 }
 function toSkyVectorDMM(lat, lon) {
-  // SkyVector expects coordinates in degrees and decimal minutes (DDMM.mm)
-  // with a hemisphere letter appended. The previous implementation rounded the
-  // minutes to an integer which produced imprecise locations. Using decimal
-  // minutes keeps the coordinates accurate and recognised by SkyVector.
   function convert(value, isLat) {
     const abs = Math.abs(value);
     const deg = Math.floor(abs);
