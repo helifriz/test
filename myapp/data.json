@@ -33,15 +33,6 @@
     "lon": -122.3140,
     "elev": 287
   },
-  "CAA6": {
-    "name": "Smithers (Canadian) Heliport",
-    "regions": [
-      "ALL"
-    ],
-    "lat": 54.7723,
-    "lon": -127.1416,
-    "elev": 1600
-  },
   "CAA8": {
     "name": "Invermere Airport",
     "regions": [
@@ -51,15 +42,6 @@
     "lon": -116.0058,
     "elev": 2820,
     "Freq": 123.2
-  },
-  "CAB7": {
-    "name": "Kelowna (Alpine) Heliport",
-    "regions": [
-      "ALL"
-    ],
-    "lat": 49.8639,
-    "lon": -119.5685,
-    "elev": 1640
   },
   "CAD4": {
     "name": "Trail Regional Airport",
@@ -80,15 +62,6 @@
     "lon": -120.7454,
     "elev": 2080,
     "Freq": 123.2
-  },
-  "CAE2": {
-    "name": "Cranbrook (East Kootenay Regional Hospital",
-    "regions": [
-      "ALL"
-    ],
-    "lat": 49.5125,
-    "lon": -115.7500,
-    "elev": 3050
   },
   "CAF4": {
     "name": "Tsuniah Lake Lodge Airport",
@@ -270,15 +243,6 @@
     "lon": -125.4084,
     "elev": 3500
   },
-  "CAS5": {
-    "name": "Aerosmith Heli Service Heliport",
-    "regions": [
-      "ALL"
-    ],
-    "lat": 49.3074,
-    "lon": -124.4133,
-    "elev": 282
-  },
   "CAT4": {
     "name": "Qualicum Beach Airport",
     "regions": [
@@ -299,7 +263,7 @@
     "elev": 225
   },
   "CAT6": {
-    "name": "Campbell River (General Hospital)",
+    "name": "Campbell River Hospital",
     "regions": [
       "ALL"
     ],
@@ -373,7 +337,7 @@
     "elev": 3225
   },
   "CAZ4": {
-    "name": "Quesnel (G.R. Baker Memorial Hospital)",
+    "name": "Quesnel Hospital",
     "regions": [
       "ALL"
     ],
