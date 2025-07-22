@@ -1,0 +1,2541 @@
+{
+  "HELICOPTERS": [
+    {
+      "reg": "C-GHIV",
+      "weight": 3692
+    },
+    {
+      "reg": "C-GHBB",
+      "weight": 3821
+    },
+    {
+      "reg": "C-GHCC",
+      "weight": 3700
+    },
+    {
+      "reg": "C-GHDD",
+      "weight": 3845
+    }
+  ],
+  "MAX_FUEL": 904,
+  "MIN_FUEL": 100,
+  "MAX_TAKEOFF_WEIGHT": 4800,
+  "waypoints": {
+    "CAA6": {
+      "name": "Smithers (Canadian) (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 54.7723,
+      "lon": -127.1416,
+      "elev": 1600
+    },
+    "CAA8": {
+      "name": "Invermere (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 50.5215,
+      "lon": -116.0058,
+      "elev": 2820,
+      "Freq": 123.2
+    },
+    "CAB5": {
+      "name": "Abbotsford hosp",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.0362,
+      "lon": -122.314,
+      "elev": 287
+    },
+    "CAB7": {
+      "name": "Kelowna (Alpine) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 49.8639,
+      "lon": -119.5685,
+      "elev": 1640
+    },
+    "CAD4": {
+      "name": "Trail Regional (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.0556,
+      "lon": -117.609,
+      "elev": 1427,
+      "Freq": 123.2
+    },
+    "CAD5": {
+      "name": "Merritt (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.1225,
+      "lon": -120.7454,
+      "elev": 2080,
+      "Freq": 123.2
+    },
+    "CAE2": {
+      "name": "Cranbrook hosp",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.5125,
+      "lon": -115.75,
+      "elev": 3050
+    },
+    "CAF4": {
+      "name": "Tsuniah Lake Lodge (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 51.5264,
+      "lon": -124.164,
+      "elev": 4000
+    },
+    "CAG3": {
+      "name": "Chilko Lake (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 51.6258,
+      "lon": -124.1445,
+      "elev": 3850
+    },
+    "CAH3": {
+      "name": "Courtenay (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.6792,
+      "lon": -124.9806,
+      "elev": 26,
+      "Freq": 123.35
+    },
+    "CAH4": {
+      "name": "Valemount (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 52.8527,
+      "lon": -119.3363,
+      "elev": 2615,
+      "Freq": 123.2
+    },
+    "CAJ3": {
+      "name": "Creston Valley Regional (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.0369,
+      "lon": -116.498,
+      "elev": 2070,
+      "Freq": 122.8
+    },
+    "CAJ4": {
+      "name": "Anahim Lake (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 52.4515,
+      "lon": -125.3038,
+      "elev": 3635,
+      "Freq": 122.8
+    },
+    "CAJ9": {
+      "name": "Fort Ware (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 57.4279,
+      "lon": -125.6482,
+      "elev": 2450
+    },
+    "CAK3": {
+      "name": "Delta Heritage (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.0774,
+      "lon": -122.941,
+      "elev": 10,
+      "Freq": 118.1
+    },
+    "CAK7": {
+      "name": "Vancouver Children & Women's",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.2438,
+      "lon": -123.1271,
+      "elev": 225
+    },
+    "CAL2": {
+      "name": "Arrow Lakes hosp",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 50.2384,
+      "lon": -117.795,
+      "elev": 1515
+    },
+    "CAL3": {
+      "name": "Douglas Lake (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.1655,
+      "lon": -120.1713,
+      "elev": 2770,
+      "Freq": 123.2
+    },
+    "CAL7": {
+      "name": "Ganges (Lady Minto hosp)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.8625,
+      "lon": -123.5087,
+      "elev": 148
+    },
+    "CAM3": {
+      "name": "Duncan (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.7545,
+      "lon": -123.7097,
+      "elev": 300,
+      "Freq": 122.8
+    },
+    "CAM5": {
+      "name": "Houston (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 54.4403,
+      "lon": -126.78,
+      "elev": 2150,
+      "Freq": 123.2
+    },
+    "CAP3": {
+      "name": "Sechelt-Gibsons (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.4606,
+      "lon": -123.719,
+      "elev": 340
+    },
+    "CAP6": {
+      "name": "Ingenika (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 56.7906,
+      "lon": -124.897,
+      "elev": 2230
+    },
+    "CAQ4": {
+      "name": "Springhouse (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 51.9549,
+      "lon": -122.14,
+      "elev": 3250
+    },
+    "CAQ5": {
+      "name": "Nakusp (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 50.2664,
+      "lon": -117.813,
+      "elev": 1689,
+      "Freq": 123.2
+    },
+    "CAS2": {
+      "name": "Moose Lake Lodge (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 53.0738,
+      "lon": -125.4084,
+      "elev": 3500
+    },
+    "CAS5": {
+      "name": "Aerosmith Heli Service (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.3074,
+      "lon": -124.4133,
+      "elev": 282
+    },
+    "CAT4": {
+      "name": "Qualicum Beach (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.3375,
+      "lon": -124.3931,
+      "elev": 191,
+      "Freq": 122.8
+    },
+    "CAT5": {
+      "name": "Port McNeill (A)",
+      "regions": [
+        "ALL",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.5735,
+      "lon": -127.0277,
+      "elev": 225
+    },
+    "CAT6": {
+      "name": "Campbell River hosp",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.0086,
+      "lon": -125.2428,
+      "elev": 228
+    },
+    "CAU3": {
+      "name": "Oliver (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 49.1733,
+      "lon": -119.551,
+      "elev": 1015,
+      "Freq": 122.8
+    },
+    "CAU4": {
+      "name": "Vanderhoof (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 54.0516,
+      "lon": -124.0108,
+      "elev": 2225,
+      "Freq": 122.8
+    },
+    "CAV3": {
+      "name": "One Hundred Mile House (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 51.6425,
+      "lon": -121.307,
+      "elev": 3055
+    },
+    "CAV4": {
+      "name": "McBride (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 53.315,
+      "lon": -120.171,
+      "elev": 2350
+    },
+    "CAW3": {
+      "name": "Scum Lake (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 51.7954,
+      "lon": -123.5816,
+      "elev": 3950
+    },
+    "CAW4": {
+      "name": "Whistler (hosp)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.1203,
+      "lon": -122.9547,
+      "elev": 2182
+    },
+    "CAX5": {
+      "name": "Likely (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 52.6167,
+      "lon": -121.5,
+      "elev": 3225
+    },
+    "CAZ4": {
+      "name": "Quesnel hosp",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 52.9827,
+      "lon": -122.5008,
+      "elev": 1600
+    },
+    "CAZ5": {
+      "name": "Cache Creek-Ashcroft Regional (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.7753,
+      "lon": -121.3213,
+      "elev": 2034,
+      "Freq": 123.2
+    },
+    "CBA8": {
+      "name": "Beaverley (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 53.8556,
+      "lon": -122.908,
+      "elev": 2420
+    },
+    "CBA9": {
+      "name": "Ospika (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 56.271,
+      "lon": -124.0633,
+      "elev": 2300
+    },
+    "CBB4": {
+      "name": "Beddis Beach Helipad",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.8,
+      "lon": -123.4236,
+      "elev": 717
+    },
+    "CBB5": {
+      "name": "Port Alice (hosp)",
+      "regions": [
+        "ALL",
+        "Parksville"
+      ],
+      "lat": 50.4258,
+      "lon": -127.4886,
+      "elev": 50
+    },
+    "CBB6": {
+      "name": "Bowser (A)",
+      "regions": [
+        "ALL",
+        "Prince Rupert"
+      ],
+      "lat": 56.3952,
+      "lon": -129.945,
+      "elev": 1452
+    },
+    "CBB9": {
+      "name": "Osoyoos (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 49.0372,
+      "lon": -119.489,
+      "elev": 1100,
+      "Freq": 123.2
+    },
+    "CBBC": {
+      "name": "Bella Bella (Campbell Island) (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 52.185,
+      "lon": -128.157,
+      "elev": 141,
+      "Freq": 122.8
+    },
+    "CBC4": {
+      "name": "Kamloops (Royal Inland hosp)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.669,
+      "lon": -120.333,
+      "elev": 1349
+    },
+    "CBC7": {
+      "name": "Harbour (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.2869,
+      "lon": -123.1061,
+      "elev": 2
+    },
+    "CBC8": {
+      "name": "Tofino General hosp",
+      "regions": [
+        "ALL",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1511,
+      "lon": -125.909,
+      "elev": 50
+    },
+    "CBD2": {
+      "name": "Delta (North) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.12,
+      "lon": -123.0473,
+      "elev": 10
+    },
+    "CBD9": {
+      "name": "White Saddle Ranch (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 51.7419,
+      "lon": -124.7389,
+      "elev": 2925
+    },
+    "CBE2": {
+      "name": "Lionel P. Demers Memorial (A)",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 49.2858,
+      "lon": -115.1569,
+      "elev": 2850
+    },
+    "CBE9": {
+      "name": "Whistler (Municipal) (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.1684,
+      "lon": -122.9048,
+      "elev": 2116
+    },
+    "CBF4": {
+      "name": "Mission (Public Safety) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1328,
+      "lon": -122.3436,
+      "elev": 85
+    },
+    "CBF5": {
+      "name": "Mayne Island (Medical Emergency) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.8467,
+      "lon": -123.2842,
+      "elev": 100
+    },
+    "CBF6": {
+      "name": "Seal Cove (Public) (H)",
+      "regions": [
+        "ALL",
+        "Prince Rupert"
+      ],
+      "lat": 54.33,
+      "lon": -130.278,
+      "elev": 17
+    },
+    "CBF7": {
+      "name": "Victoria Harbour (Camel Point) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.4181,
+      "lon": -123.388,
+      "elev": 15
+    },
+    "CBF9": {
+      "name": "Mabel Lake (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 50.6089,
+      "lon": -118.731,
+      "elev": 1410
+    },
+    "CBG2": {
+      "name": "Green Lake (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 51.4294,
+      "lon": -121.21,
+      "elev": 3550
+    },
+    "CBG5": {
+      "name": "Nanaimo hosp",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1857,
+      "lon": -123.9718,
+      "elev": 292
+    },
+    "CBH2": {
+      "name": "Helmet (A)",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 59.4258,
+      "lon": -120.798,
+      "elev": 1930
+    },
+    "CBJ4": {
+      "name": "Echo Valley (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 51.2417,
+      "lon": -121.9898,
+      "elev": 3650,
+      "Freq": 123.2
+    },
+    "CBJ9": {
+      "name": "San Juan Point (Coast Guard) (H)",
+      "regions": [
+        "ALL",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.5315,
+      "lon": -124.4582,
+      "elev": 25
+    },
+    "CBK4": {
+      "name": "Vancouver General hosp",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.2619,
+      "lon": -123.1244,
+      "elev": 235
+    },
+    "CBK5": {
+      "name": "Port Alberni hosp",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.2488,
+      "lon": -124.783,
+      "elev": 272
+    },
+    "CBK6": {
+      "name": "Quesnel Lake (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 52.514,
+      "lon": -121.0459,
+      "elev": 2500
+    },
+    "CBK7": {
+      "name": "Mile 422 (Alaska Highway) (A)",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 58.8494,
+      "lon": -125.24,
+      "elev": 2400
+    },
+    "CBK8": {
+      "name": "Victoria (Royal Jubilee hosp)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.4343,
+      "lon": -123.3252,
+      "elev": 50
+    },
+    "CBK9": {
+      "name": "Little Parker Island (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.8964,
+      "lon": -123.418,
+      "elev": 22
+    },
+    "CBL3": {
+      "name": "Gordon Field",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 58.8167,
+      "lon": -122.783,
+      "elev": 1625
+    },
+    "CBL6": {
+      "name": "Radium Hot Springs (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 50.6272,
+      "lon": -116.095,
+      "elev": 2650
+    },
+    "CBL7": {
+      "name": "Cortes Island (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.0586,
+      "lon": -124.982,
+      "elev": 230
+    },
+    "CBL9": {
+      "name": "Elkin Creek Guest Ranch (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 51.5105,
+      "lon": -123.8062,
+      "elev": 4080
+    },
+    "CBM6": {
+      "name": "Midway (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 49.01,
+      "lon": -118.79,
+      "elev": 1896
+    },
+    "CBM9": {
+      "name": "Port McNeill hosp",
+      "regions": [
+        "ALL",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.5817,
+      "lon": -127.0668,
+      "elev": 150
+    },
+    "CBN9": {
+      "name": "Tsay Keh (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 56.9061,
+      "lon": -124.965,
+      "elev": 2280
+    },
+    "CBP3": {
+      "name": "Fernie hosp",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 49.5129,
+      "lon": -115.0562,
+      "elev": 3300
+    },
+    "CBP4": {
+      "name": "Sechelt hosp",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.4762,
+      "lon": -123.7486,
+      "elev": 179
+    },
+    "CBP5": {
+      "name": "Blackcomb Helicopters (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.6851,
+      "lon": -121.9272,
+      "elev": 700
+    },
+    "CBQ2": {
+      "name": "Fort Langley (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1675,
+      "lon": -122.555,
+      "elev": 30
+    },
+    "CBQ7": {
+      "name": "Kemess Creek (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 56.9744,
+      "lon": -126.741,
+      "elev": 4191
+    },
+    "CBQ8": {
+      "name": "Woodcock (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 55.0667,
+      "lon": -128.233,
+      "elev": 537,
+      "Freq": 123.2
+    },
+    "CBR2": {
+      "name": "Kaslo (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.9036,
+      "lon": -116.935,
+      "elev": 2354,
+      "Freq": 123.2
+    },
+    "CBR4": {
+      "name": "Clinton/Bleibler Ranch (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 51.2668,
+      "lon": -121.6858,
+      "elev": 3695
+    },
+    "CBR7": {
+      "name": "Tofino Lifeboat Station Helipad",
+      "regions": [
+        "ALL",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1547,
+      "lon": -125.9081,
+      "elev": 10
+    },
+    "CBR8": {
+      "name": "Prince Rupert hosp",
+      "regions": [
+        "ALL",
+        "Prince Rupert"
+      ],
+      "lat": 54.3051,
+      "lon": -130.3302,
+      "elev": 279
+    },
+    "CBS4": {
+      "name": "Mule Creek (A)",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 59.7738,
+      "lon": -136.5962,
+      "elev": 2900
+    },
+    "CBS5": {
+      "name": "Port Hardy hosp",
+      "regions": [
+        "ALL",
+        "Parksville"
+      ],
+      "lat": 50.7206,
+      "lon": -127.5026,
+      "elev": 85
+    },
+    "CBS8": {
+      "name": "Alberni Valley Regional (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.3219,
+      "lon": -124.931,
+      "elev": 250,
+      "Freq": 123.0
+    },
+    "CBT3": {
+      "name": "Tsetzi Lake (Pan Phillips) (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 52.9701,
+      "lon": -125.0287,
+      "elev": 3550
+    },
+    "CBT5": {
+      "name": "Golden hosp",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 51.297,
+      "lon": -116.967,
+      "elev": 2575
+    },
+    "CBT9": {
+      "name": "Sproat Lake Tanker Base (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.2898,
+      "lon": -124.9391,
+      "elev": 103
+    },
+    "CBU2": {
+      "name": "Eddontenajon / Iskut Village (A)",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 57.848,
+      "lon": -129.984,
+      "elev": 3100,
+      "Freq": 123.2
+    },
+    "CBU4": {
+      "name": "Prince Rupert (Hydro) (H)",
+      "regions": [
+        "ALL",
+        "Prince Rupert"
+      ],
+      "lat": 54.3117,
+      "lon": -130.294,
+      "elev": 98
+    },
+    "CBU5": {
+      "name": "Terrace hosp",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 54.5109,
+      "lon": -128.5976,
+      "elev": 250
+    },
+    "CBV7": {
+      "name": "Valemount (Yellowhead Helicopters) (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 52.8662,
+      "lon": -119.2976,
+      "elev": 2600
+    },
+    "CBV8": {
+      "name": "Comox hosp",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.6751,
+      "lon": -124.9412,
+      "elev": 60
+    },
+    "CBW2": {
+      "name": "Kitimat (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 54.1678,
+      "lon": -128.5787,
+      "elev": 250
+    },
+    "CBW3": {
+      "name": "Fort Grahame (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 56.5214,
+      "lon": -124.4703,
+      "elev": 2230
+    },
+    "CBW4": {
+      "name": "Bob Quinn Lake (A)",
+      "regions": [
+        "ALL",
+        "Prince Rupert"
+      ],
+      "lat": 56.9667,
+      "lon": -130.25,
+      "elev": 2000
+    },
+    "CBW7": {
+      "name": "Victoria hosp",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.468,
+      "lon": -123.4324,
+      "elev": 55
+    },
+    "CBW9": {
+      "name": "Madrona Bay (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.8558,
+      "lon": -123.486,
+      "elev": 35
+    },
+    "CBX7": {
+      "name": "Tumbler Ridge (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 55.025,
+      "lon": -120.935,
+      "elev": 3075,
+      "Freq": 123.2
+    },
+    "CBY5": {
+      "name": "Seal Cove (Coast Guard) (H)",
+      "regions": [
+        "ALL",
+        "Prince Rupert"
+      ],
+      "lat": 54.3315,
+      "lon": -130.2768,
+      "elev": 17
+    },
+    "CBZ2": {
+      "name": "Kemano (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 53.5625,
+      "lon": -127.9486,
+      "elev": 160
+    },
+    "CBZ7": {
+      "name": "Victoria Harbour (Shoal Point) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.4232,
+      "lon": -123.3875,
+      "elev": 10
+    },
+    "CBZ9": {
+      "name": "Fraser Lake (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 54.0145,
+      "lon": -124.7714,
+      "elev": 2690,
+      "Freq": 122.8
+    },
+    "CCI9": {
+      "name": "Cortes Island (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.0203,
+      "lon": -124.984,
+      "elev": 164
+    },
+    "CCR6": {
+      "name": "Campbell River (E & B Heli) (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.0413,
+      "lon": -125.2686,
+      "elev": 7
+    },
+    "CCS6": {
+      "name": "Smit Field",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.6669,
+      "lon": -125.0977,
+      "elev": 500
+    },
+    "CCT3": {
+      "name": "Castlegar (Tarrys Convention Centre) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.3861,
+      "lon": -117.552,
+      "elev": 1632
+    },
+    "CDC3": {
+      "name": "Flying L Ranch (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 55.8195,
+      "lon": -120.4603,
+      "elev": 2680
+    },
+    "CDC5": {
+      "name": "Dougall Campbell Field",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 52.0108,
+      "lon": -121.2107,
+      "elev": 3060
+    },
+    "CDH4": {
+      "name": "Cowichan District hosp",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.7862,
+      "lon": -123.7214,
+      "elev": 132
+    },
+    "CDH5": {
+      "name": "Nanaimo Harbour (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1608,
+      "lon": -123.9232,
+      "elev": 12
+    },
+    "CFH2": {
+      "name": "Frontline Helicopters (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 51.9646,
+      "lon": -121.8122,
+      "elev": 2644
+    },
+    "CFJ7": {
+      "name": "Fort St. John (hosp)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 56.2467,
+      "lon": -120.842,
+      "elev": 2304
+    },
+    "CFN8": {
+      "name": "Fort Nelson (Guardian) (H)",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 58.7522,
+      "lon": -122.687,
+      "elev": 1292
+    },
+    "CFR6": {
+      "name": "Vancouver / Coquitlam Fire and Rescue (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.2916,
+      "lon": -122.7921,
+      "elev": 180
+    },
+    "CGB4": {
+      "name": "Nanaimo/Gabriola Island (Health Clinic)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1783,
+      "lon": -123.8353,
+      "elev": 341
+    },
+    "CGF4": {
+      "name": "Boundary hosp (H)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.0306,
+      "lon": -118.4699,
+      "elev": 1747
+    },
+    "CGL5": {
+      "name": "Gun Lake (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.8897,
+      "lon": -122.847,
+      "elev": 2950
+    },
+    "CGL6": {
+      "name": "Vancouver / Burnaby (Global BC) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.2546,
+      "lon": -122.9352,
+      "elev": 262
+    },
+    "CGR2": {
+      "name": "Gold River (E & B Helicopters) (H)",
+      "regions": [
+        "ALL",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.7533,
+      "lon": -126.0556,
+      "elev": 182,
+      "Freq": 123.2
+    },
+    "CGR4": {
+      "name": "The Ridge (H)",
+      "regions": [
+        "ALL",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.7832,
+      "lon": -126.0437,
+      "elev": 478
+    },
+    "CHT4": {
+      "name": "Nelson (High Terrain Helicopters) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.4867,
+      "lon": -117.3272,
+      "elev": 1950
+    },
+    "CIV2": {
+      "name": "Invermere (hosp) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 50.5072,
+      "lon": -116.0328,
+      "elev": 2900
+    },
+    "CKA2": {
+      "name": "Heffley Creek Airstrip",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 50.869,
+      "lon": -120.2741,
+      "elev": null
+    },
+    "CKB3": {
+      "name": "Kootenay hosp",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.1036,
+      "lon": -117.7003,
+      "elev": 1526
+    },
+    "CKH9": {
+      "name": "Kelowna General hosp",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 49.8743,
+      "lon": -119.4924,
+      "elev": 1180
+    },
+    "CMBH": {
+      "name": "Mount Belcher (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.8328,
+      "lon": -123.505,
+      "elev": 1000
+    },
+    "CMH6": {
+      "name": "Canadian Mountain Holidays (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 52.7884,
+      "lon": -119.2562,
+      "elev": 2711
+    },
+    "CML2": {
+      "name": "Quamichan Lake (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.8119,
+      "lon": -123.651,
+      "elev": 130
+    },
+    "CND7": {
+      "name": "Slocan hosp (H)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.9841,
+      "lon": -117.3744,
+      "elev": 1769
+    },
+    "CNH9": {
+      "name": "Nanaimo (West Coast) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1848,
+      "lon": -123.9892,
+      "elev": 200
+    },
+    "CNM6": {
+      "name": "Naramata (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 49.6029,
+      "lon": -119.5785,
+      "elev": 1856
+    },
+    "CNW9": {
+      "name": "New Westminster hosp (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.2267,
+      "lon": -122.8923,
+      "elev": 124
+    },
+    "CPW8": {
+      "name": "Powell River hosp (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.8514,
+      "lon": -124.5175,
+      "elev": 300
+    },
+    "CR8A": {
+      "name": "Reef Hueston Helicopter Landing",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 53.8231,
+      "lon": -126.1722,
+      "elev": null
+    },
+    "CRC3": {
+      "name": "Ross Creek (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 50.9655,
+      "lon": -119.2254,
+      "elev": 1257
+    },
+    "CRF2": {
+      "name": "Langley (Russell Farm) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.011,
+      "lon": -122.6722,
+      "elev": 250
+    },
+    "CRG2": {
+      "name": "Argus (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 49.9616,
+      "lon": -119.4458,
+      "elev": 1894
+    },
+    "CRHA": {
+      "name": "Streatham Reef Hueston (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 53.8226,
+      "lon": -126.173,
+      "elev": null
+    },
+    "CSE7": {
+      "name": "Delta (SEI) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1291,
+      "lon": -123.0184,
+      "elev": 37
+    },
+    "CSR6": {
+      "name": "Sonora Resort (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.3817,
+      "lon": -125.1576,
+      "elev": 46
+    },
+    "CTK8": {
+      "name": "Abbotsford (Teck) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1269,
+      "lon": -122.395,
+      "elev": 165
+    },
+    "CVA3": {
+      "name": "Valhalla (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 49.8677,
+      "lon": -119.5607,
+      "elev": 1539
+    },
+    "CVS3": {
+      "name": "Surrey Memorial hosp (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.176,
+      "lon": -122.8437,
+      "elev": 245
+    },
+    "CWC2": {
+      "name": "Kelowna (Wildcat Helicopters) (H)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 49.8674,
+      "lon": -119.5792,
+      "elev": 1640
+    },
+    "CWCV": {
+      "name": "Nootka Lightstation Helipad",
+      "regions": [
+        "ALL",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.5922,
+      "lon": -126.6164,
+      "elev": 48
+    },
+    "CWFM": {
+      "name": "Chatham Point Light Station (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.3331,
+      "lon": -125.4453,
+      "elev": 75
+    },
+    "CWIF": {
+      "name": "Quatsino Light Station (H)",
+      "regions": [
+        "ALL",
+        "Parksville"
+      ],
+      "lat": 50.4417,
+      "lon": -128.0315,
+      "elev": 35
+    },
+    "CWZM": {
+      "name": "Boat Bluff Lighthouse (H)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 52.6437,
+      "lon": -128.5246,
+      "elev": 44
+    },
+    "CYAL": {
+      "name": "Alert Bay (A)",
+      "regions": [
+        "ALL",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.5822,
+      "lon": -126.916,
+      "elev": 240
+    },
+    "CYAZ": {
+      "name": "Tofino / Long Beach (A)",
+      "regions": [
+        "ALL",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.0798,
+      "lon": -125.7756,
+      "elev": 80,
+      "Freq": 132.9
+    },
+    "CYB3": {
+      "name": "Nelson/Baylock Estate (H)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.5447,
+      "lon": -117.2606,
+      "elev": 1830
+    },
+    "CYBD": {
+      "name": "Bella Coola (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 52.3875,
+      "lon": -126.596,
+      "elev": 117,
+      "Freq": 122.8
+    },
+    "CYBL": {
+      "name": "Campbell River (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.9508,
+      "lon": -125.271,
+      "elev": 346,
+      "Freq": 122.0
+    },
+    "CYCD": {
+      "name": "Nanaimo (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.055,
+      "lon": -123.8699,
+      "elev": 92,
+      "Freq": 133.95
+    },
+    "CYCG": {
+      "name": "Castlegar/West Kootenay (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.2964,
+      "lon": -117.632,
+      "elev": 1624,
+      "Freq": 122.1
+    },
+    "CYCP": {
+      "name": "Blue River (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 52.1167,
+      "lon": -119.283,
+      "elev": 2240,
+      "Freq": 123.2
+    },
+    "CYCQ": {
+      "name": "Chetwynd (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 55.6872,
+      "lon": -121.627,
+      "elev": 2000,
+      "Freq": 123.2
+    },
+    "CYCW": {
+      "name": "Chilliwack (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1532,
+      "lon": -121.9393,
+      "elev": 32,
+      "Freq": 122.7
+    },
+    "CYCZ": {
+      "name": "Fairmont Hot Springs (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 50.3311,
+      "lon": -115.8737,
+      "elev": 2661,
+      "Freq": 123.2
+    },
+    "CYDC": {
+      "name": "Princeton (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.4681,
+      "lon": -120.511,
+      "elev": 2298,
+      "Freq": 123.2
+    },
+    "CYDL": {
+      "name": "Dease Lake (A)",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 58.4222,
+      "lon": -130.032,
+      "elev": 2600,
+      "Freq": 123.2
+    },
+    "CYDQ": {
+      "name": "Dawson Creek (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 55.7412,
+      "lon": -120.1833,
+      "elev": 2148,
+      "Freq": 122.2
+    },
+    "CYGB": {
+      "name": "Texada Gillies Bay (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.6943,
+      "lon": -124.5181,
+      "elev": 326,
+      "Freq": 122.7
+    },
+    "CYGE": {
+      "name": "Golden (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 51.2992,
+      "lon": -116.982,
+      "elev": 2575,
+      "Freq": 122.8
+    },
+    "CYHE": {
+      "name": "Hope (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.3689,
+      "lon": -121.495,
+      "elev": 128,
+      "Freq": 123.3
+    },
+    "CYJM": {
+      "name": "Fort St James (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 54.3972,
+      "lon": -124.263,
+      "elev": 2364,
+      "Freq": 123.2
+    },
+    "CYJQ": {
+      "name": "Denny Island (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 52.1365,
+      "lon": -128.0562,
+      "elev": 162
+    },
+    "CYKA": {
+      "name": "Kamloops (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.703,
+      "lon": -120.4486,
+      "elev": 1133,
+      "Freq": 121.9
+    },
+    "CYKT": {
+      "name": "Tranquille Valley (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.8595,
+      "lon": -120.6711,
+      "elev": null
+    },
+    "CYLI": {
+      "name": "Lillooet (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.6747,
+      "lon": -121.894,
+      "elev": 1320,
+      "Freq": 123.2
+    },
+    "CYLW": {
+      "name": "Kelowna INT (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 49.9561,
+      "lon": -119.378,
+      "elev": 1421,
+      "Freq": 119.6
+    },
+    "CYNH": {
+      "name": "Hudson's Hope (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 56.0351,
+      "lon": -121.9783,
+      "elev": 2220,
+      "Freq": 123.2
+    },
+    "CYNJ": {
+      "name": "Langley (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1008,
+      "lon": -122.631,
+      "elev": 34,
+      "Freq": 119.0
+    },
+    "CYPK": {
+      "name": "Pitt Meadows (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.2161,
+      "lon": -122.71,
+      "elev": 11,
+      "Freq": 126.3
+    },
+    "CYPR": {
+      "name": "Prince Rupert (A)",
+      "regions": [
+        "ALL",
+        "Prince Rupert"
+      ],
+      "lat": 54.2861,
+      "lon": -130.445,
+      "elev": 116,
+      "Freq": 122.5
+    },
+    "CYPS": {
+      "name": "Pemberton Regional (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 50.3025,
+      "lon": -122.738,
+      "elev": 670,
+      "Freq": 123.2
+    },
+    "CYPU": {
+      "name": "Puntzi Mountain (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 52.1128,
+      "lon": -124.145,
+      "elev": 2985,
+      "Freq": 126.7
+    },
+    "CYPW": {
+      "name": "Powell River (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.8342,
+      "lon": -124.5,
+      "elev": 425,
+      "Freq": 123.0
+    },
+    "CYPZ": {
+      "name": "Burns Lake (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 54.3764,
+      "lon": -125.951,
+      "elev": 2343,
+      "Freq": 122.7
+    },
+    "CYQQ": {
+      "name": "Comox Valley (A) / CFB Comox",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.7108,
+      "lon": -124.887,
+      "elev": 84,
+      "Freq": 126.2
+    },
+    "CYQZ": {
+      "name": "Quesnel (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 53.0261,
+      "lon": -122.51,
+      "elev": 1789,
+      "Freq": 122.2
+    },
+    "CYRV": {
+      "name": "Revelstoke (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 50.9622,
+      "lon": -118.1843,
+      "elev": 1459,
+      "Freq": 122.8
+    },
+    "CYSE": {
+      "name": "Squamish (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.7817,
+      "lon": -123.162,
+      "elev": 171,
+      "Freq": 122.8
+    },
+    "CYSQ": {
+      "name": "Atlin (A)",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 59.5783,
+      "lon": -133.6689,
+      "elev": 2348
+    },
+    "CYSW": {
+      "name": "Sparwood Elk Valley (A)",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 49.8343,
+      "lon": -114.8787,
+      "elev": 3800,
+      "Freq": 123.2
+    },
+    "CYVK": {
+      "name": "Vernon Regional (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 50.2462,
+      "lon": -119.331,
+      "elev": 1140,
+      "Freq": 122.8
+    },
+    "CYVR": {
+      "name": "Vancouver INT (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.1939,
+      "lon": -123.184,
+      "elev": 14,
+      "Freq": 118.7
+    },
+    "CYWL": {
+      "name": "Williams Lake (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops"
+      ],
+      "lat": 52.1831,
+      "lon": -122.054,
+      "elev": 3085,
+      "Freq": 122.3
+    },
+    "CYXC": {
+      "name": "Cranbrook INT (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.6108,
+      "lon": -115.782,
+      "elev": 3082,
+      "Freq": 122.3
+    },
+    "CYXJ": {
+      "name": "Fort St John (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 56.2381,
+      "lon": -120.74,
+      "elev": 2280,
+      "Freq": 118.5
+    },
+    "CYXS": {
+      "name": "Prince George (A)",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 53.8843,
+      "lon": -122.6666,
+      "elev": 2267,
+      "Freq": 118.3
+    },
+    "CYXT": {
+      "name": "Northwest Regional (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 54.4685,
+      "lon": -128.576,
+      "elev": 713,
+      "Freq": 122.0
+    },
+    "CYXX": {
+      "name": "Abbotsford INT (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.0253,
+      "lon": -122.361,
+      "elev": 195,
+      "Freq": 119.4
+    },
+    "CYYD": {
+      "name": "Smithers (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 54.8247,
+      "lon": -127.183,
+      "elev": 1712,
+      "Freq": 122.3
+    },
+    "CYYE": {
+      "name": "Fort Nelson (A)",
+      "regions": [
+        "ALL"
+      ],
+      "lat": 58.8364,
+      "lon": -122.597,
+      "elev": 1253,
+      "Freq": 125.65
+    },
+    "CYYF": {
+      "name": "Penticton (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 49.4631,
+      "lon": -119.602,
+      "elev": 1129,
+      "Freq": 118.5
+    },
+    "CYYJ": {
+      "name": "Victoria INT (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 48.6472,
+      "lon": -123.4278,
+      "elev": 63,
+      "Freq": 119.1
+    },
+    "CYZP": {
+      "name": "Sandspit (A)",
+      "regions": [
+        "ALL",
+        "Prince Rupert"
+      ],
+      "lat": 53.2543,
+      "lon": -131.814,
+      "elev": 21,
+      "Freq": 122.3
+    },
+    "CYZT": {
+      "name": "Port Hardy (A)",
+      "regions": [
+        "ALL",
+        "Parksville"
+      ],
+      "lat": 50.6806,
+      "lon": -127.367,
+      "elev": 71,
+      "Freq": 122.2
+    },
+    "CYZY": {
+      "name": "Mackenzie (A)",
+      "regions": [
+        "ALL",
+        "Prince George"
+      ],
+      "lat": 55.2978,
+      "lon": -123.1339,
+      "elev": 2264,
+      "Freq": 126.7
+    },
+    "CZAM": {
+      "name": "Shuswap Regional (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 50.6828,
+      "lon": -119.229,
+      "elev": 1751,
+      "Freq": 122.9
+    },
+    "CZBB": {
+      "name": "Boundary Bay (A)",
+      "regions": [
+        "ALL",
+        "Kamloops",
+        "Vancouver",
+        "Parksville"
+      ],
+      "lat": 49.0742,
+      "lon": -123.012,
+      "elev": 6,
+      "Freq": 118.1
+    },
+    "CZGF": {
+      "name": "Grand Forks (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.0156,
+      "lon": -118.431,
+      "elev": 1720,
+      "Freq": 123.2
+    },
+    "CZML": {
+      "name": "South Cariboo (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Vancouver"
+      ],
+      "lat": 51.7361,
+      "lon": -121.333,
+      "elev": 3126,
+      "Freq": 134.0
+    },
+    "CZMT": {
+      "name": "Masset (A)",
+      "regions": [
+        "ALL",
+        "Prince Rupert"
+      ],
+      "lat": 54.0275,
+      "lon": -132.125,
+      "elev": 25,
+      "Freq": 122.7
+    },
+    "CZNL": {
+      "name": "Nelson (A)",
+      "regions": [
+        "ALL",
+        "Kamloops"
+      ],
+      "lat": 49.4942,
+      "lon": -117.301,
+      "elev": 1755,
+      "Freq": 123.2
+    },
+    "CZST": {
+      "name": "Stewart (A)",
+      "regions": [
+        "ALL",
+        "Prince Rupert"
+      ],
+      "lat": 55.9354,
+      "lon": -129.9824,
+      "elev": 24,
+      "Freq": 123.2
+    },
+    "KCA2": {
+      "name": "The Hill Airstrip",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Kamloops",
+        "Parksville"
+      ],
+      "lat": 52.2188,
+      "lon": -123.4495,
+      "elev": null
+    },
+    "YRD": {
+      "name": "Dean River (A)",
+      "regions": [
+        "ALL",
+        "Prince George",
+        "Prince Rupert"
+      ],
+      "lat": 52.8237,
+      "lon": -126.965,
+      "elev": 62
+    }
+  },
+  "PILOTS": [
+    {
+      "name": "Alice Smith",
+      "weight": 78
+    },
+    {
+      "name": "Bob Jones",
+      "weight": 90
+    },
+    {
+      "name": "Charlie Lee",
+      "weight": 83
+    },
+    {
+      "name": "Dana White",
+      "weight": 74
+    }
+  ],
+  "MEDICS": [
+    {
+      "name": "Std Female",
+      "weight": 80
+    },
+    {
+      "name": "Std Male",
+      "weight": 96
+    },
+    {
+      "name": "Alice Rose",
+      "weight": 78
+    },
+    {
+      "name": "Bob Lee",
+      "weight": 90
+    },
+    {
+      "name": "Charlie Pain",
+      "weight": 83
+    },
+    {
+      "name": "Dana Black",
+      "weight": 74
+    }
+  ]
+}
