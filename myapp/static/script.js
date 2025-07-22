@@ -996,7 +996,7 @@ function printFlightLog() {
       <td>${leg.to}</td>
       <td style="text-align: center;" >:</td>
       <td style="text-align: center;" >:</td>
-      <td>&nbsp;</td>
+      <td></td>
       <td></td>
       <td></td>
       <td>${remarks}</td>
