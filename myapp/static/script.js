@@ -1056,7 +1056,7 @@ function printFlightLog() {
         <td style="width:40px;" >AIR</td>
         <td style="width:40px;" >FLT</td>
         <td style="font-size: 8px;">Fuel uplift</td>
-        <td style="text-align: center; width: 160px;">REMARKS</td>
+        <td style="text-align: center; width: 120px;">REMARKS</td>
         </tr>
         ${legRows}
         <tr><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td><td class="spacer"></td>
