@@ -2275,7 +2275,8 @@
     "CYXS": {
       "name": "Prince George (A)",
       "regions": [
-        "ALL"
+        "ALL",
+        "Prince George"
       ],
       "lat": 53.8843,
       "lon": -122.6666,
