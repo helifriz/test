@@ -1,11 +1,17 @@
 from flask import Flask, render_template, jsonify
 import os
 
-from .data_utils import load_data
-
-from .pilot import pilot_bp
-from .medic import medic_bp
-from .waypoint import waypoint_bp
+# Support running as part of the ``myapp`` package or as standalone files.
+try:  # Package-style imports
+    from .data_utils import load_data
+    from .pilot import pilot_bp
+    from .medic import medic_bp
+    from .waypoint import waypoint_bp
+except ImportError:  # Fallback when executed as standalone scripts
+    from data_utils import load_data
+    from pilot import pilot_bp
+    from medic import medic_bp
+    from waypoint import waypoint_bp
 
 app = Flask(__name__)
 
