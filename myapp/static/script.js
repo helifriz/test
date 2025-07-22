@@ -999,7 +999,6 @@ function printFlightLog() {
       <td>&nbsp;</td>
       <td></td>
       <td></td>
-      <td>&nbsp;</td>
       <td>${remarks}</td>
       </tr>`;
   }
@@ -1057,7 +1056,6 @@ function printFlightLog() {
         <td style="width:40px;" >AIR</td>
         <td style="width:40px;" >FLT</td>
         <td>FUEL UPLIFT</td>
-        <td>SOULS</td>
         <td style="text-align: center; width: 160px;">REMARKS</td>
         </tr>
         ${legRows}
