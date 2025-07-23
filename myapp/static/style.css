@@ -117,7 +117,7 @@ button:hover {
 }
 
 .leg-row {
-  margin-bottom: 10px;
+  margin-bottom: 2px; /* reduce spacing between leg tables */
 }
 
 /* ============================= */
@@ -125,7 +125,7 @@ button:hover {
 /* ============================= */
 .leg-table {
   width: 80%;
-  margin-bottom: 0px;
+  margin: 0 auto; /* override generic table margin */
   border-collapse: collapse;
   border: 1px solid #ccc;
 }
