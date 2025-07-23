@@ -818,7 +818,7 @@ function getWeather() {
       })
       .join("&");
     const wxBriefURL =
-      `https://wxbrief.ca/?${wxPoints}&metar=true&taf=true&gfaWx=true&gfaTurb=true&live=true`;
+      `https://wxbrief.ca/?${wxPoints}&routeRadius=20&metar=true&taf=true&gfaWx=true&gfaTurb=true&live=true`;
     window.open(wxBriefURL, "_blank");
     // 📍 Google Maps for all Scene Calls (manual lat/lon)
     points.forEach((p) => {
