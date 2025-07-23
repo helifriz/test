@@ -808,6 +808,18 @@ function getWeather() {
     const hl = isICAO ? fromPoint.original : "";
     const metarURL = `https://metar-taf.com/?c=${latInt}.${lonInt}&hl=${hl}`;
     window.open(metarURL, "_blank");
+    // Build wxbrief.ca URL using all route points
+    const wxPoints = points
+      .map((p) => {
+        const ident = p.original || "";
+        const lon = p.lon.toFixed(3);
+        const lat = p.lat.toFixed(3);
+        return `point=${encodeURIComponent(`${ident}|site|${lon},${lat}`)}`;
+      })
+      .join("&");
+    const wxBriefURL =
+      `https://wxbrief.ca/?${wxPoints}&metar=true&taf=true&gfaWx=true&gfaTurb=true&live=true`;
+    window.open(wxBriefURL, "_blank");
     // 📍 Google Maps for all Scene Calls (manual lat/lon)
     points.forEach((p) => {
       // Treat as ICAO if original is 3-4 letters/numbers AND no comma (not lat/lon)
