@@ -124,15 +124,15 @@ button:hover {
 /* Leg Entry Table Styles */
 /* ============================= */
 .leg-table {
-  width: 100%;
-  margin-bottom: 10px;
+  width: 80%;
+  margin-bottom: 0px;
   border-collapse: collapse;
   border: 1px solid #ccc;
 }
 
 .leg-table td {
   border: none;
-  padding: 10px;
+  padding: 1px;
 }
 
 .leg-options {
@@ -144,8 +144,8 @@ button:hover {
 }
 
 #result {
-  margin-top: 20px;
-  font-size: 30px;
+  margin-top: 10px;
+  font-size: 25px;
 }
 
 /* ============================= */
