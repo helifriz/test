@@ -509,10 +509,31 @@ function calculateRoute() {
   const seat1c = MEDICS.find((m) => m.name === seat1cName)?.weight || 0;
   const baggage = parseFloat(document.getElementById("baggage").value) || 0;
   // These are global patient/escort weights
-  const globalPatientWeight =
-    parseFloat(document.getElementById("patient").value) || 0;
-  const globalEscortWeight =
-    parseFloat(document.getElementById("escort").value) || 0;
+  const patientVal = document.getElementById("patient").value;
+  const escortVal = document.getElementById("escort").value;
+  const globalPatientWeight = parseFloat(patientVal) || 0;
+  const globalEscortWeight = parseFloat(escortVal) || 0;
+
+  const patientRequired = Array.from(
+    document.querySelectorAll(".patient-checkbox"),
+  ).some((cb) => cb.checked);
+  const escortRequired = Array.from(
+    document.querySelectorAll(".escort-checkbox"),
+  ).some((cb) => cb.checked);
+
+  if (patientRequired && (!patientVal || parseFloat(patientVal) <= 0)) {
+    alert("Patient weight is required when the patient checkbox is selected");
+    errors.push(
+      "Patient weight is required when the patient checkbox is selected",
+    );
+  }
+
+  if (escortRequired && (!escortVal || parseFloat(escortVal) <= 0)) {
+    alert("Escort weight is required when the escort checkbox is selected");
+    errors.push(
+      "Escort weight is required when the escort checkbox is selected",
+    );
+  }
   const selectedHeli = document.getElementById("helicopter").value;
   const heliWeight =
     HELICOPTERS.find((h) => h.reg === selectedHeli)?.weight || 0;
