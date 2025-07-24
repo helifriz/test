@@ -11,6 +11,8 @@ let waypoints = {};
 let PILOTS = [];
 let MEDICS = [];
 
+const CREW_KEY = 'crewSelection';
+
 async function fetchData() {
   try {
     const res = await fetch('/data');
@@ -83,6 +85,8 @@ window.addEventListener('storage', (e) => {
   } else if (e.key === 'extraWaypoints') {
     loadExtraWaypoints();
     populateAllDropdowns();
+  } else if (e.key === CREW_KEY) {
+    loadCrewSelection();
   }
 });
 
@@ -103,6 +107,45 @@ function populateHelicopterDropdown() {
 function populatePilotDropdowns() {
   document.getElementById("leftPilot").value = "";
   document.getElementById("rightPilot").value = "";
+}
+
+function saveCrewSelection() {
+  try {
+    const data = {
+      helicopter: document.getElementById('helicopter').value,
+      leftPilot: document.getElementById('leftPilot').value,
+      rightPilot: document.getElementById('rightPilot').value,
+      seat1a: document.getElementById('seat1a').value,
+      seat2a: document.getElementById('seat2a').value,
+      seat1c: document.getElementById('seat1c').value,
+    };
+    localStorage.setItem(CREW_KEY, JSON.stringify(data));
+  } catch (err) {
+    console.error('Failed to store crew selection', err);
+  }
+}
+
+function loadCrewSelection() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(CREW_KEY) || '{}');
+    if (stored.helicopter) {
+      const heliSelect = document.getElementById('helicopter');
+      heliSelect.value = stored.helicopter;
+    }
+    const ids = ['leftPilot','rightPilot','seat1a','seat2a','seat1c'];
+    ids.forEach((id) => {
+      if (stored[id]) {
+        const input = document.getElementById(id);
+        input.value = stored[id];
+      }
+    });
+    disableDuplicatePilot();
+    ['seat1a','seat2a','seat1c'].forEach((id) => {
+      disableDuplicateMedic({ target: document.getElementById(id) });
+    });
+  } catch (err) {
+    console.error('Failed to load crew selection', err);
+  }
 }
 
 function setupMedicSearch(id) {
@@ -1189,6 +1232,7 @@ async function start() {
   populateAllDropdowns();
   disableDuplicatePilot();
   populateHelicopterDropdown();
+  loadCrewSelection();
   document.querySelectorAll(".leg-row").forEach(attachRemoveHandler);
 
   const qs = (id) => document.getElementById(id);
@@ -1202,6 +1246,12 @@ async function start() {
     ['printBtn', 'click', printFlightLog],
     ['manageBtn', 'click', (e) => (window.location.href = e.target.dataset.href)],
     ['region-select', 'change', populateAllDropdowns],
+    ['helicopter', 'change', saveCrewSelection],
+    ['leftPilot', 'input', saveCrewSelection],
+    ['rightPilot', 'input', saveCrewSelection],
+    ['seat1a', 'input', saveCrewSelection],
+    ['seat2a', 'input', saveCrewSelection],
+    ['seat1c', 'input', saveCrewSelection],
   ];
   mapping.forEach(([id, evt, fn]) => {
     const el = qs(id);
