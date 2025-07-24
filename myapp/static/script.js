@@ -126,6 +126,8 @@ function setupMedicSearch(id) {
       div.textContent = m.name;
       div.addEventListener("mousedown", () => {
         input.value = m.name;
+        input.focus();
+        if (input.value) input.select();
         hide();
         disableDuplicateMedic({ target: input });
       });
@@ -135,7 +137,10 @@ function setupMedicSearch(id) {
   }
 
   input.addEventListener("input", show);
-  input.addEventListener("focus", show);
+  input.addEventListener("focus", () => {
+    if (input.value) input.select();
+    show();
+  });
   document.addEventListener("click", (e) => {
     if (!results.contains(e.target) && e.target !== input) hide();
   });
@@ -191,6 +196,8 @@ function setupPilotSearch(id) {
       div.textContent = p.name;
       div.addEventListener("mousedown", () => {
         input.value = p.name;
+        input.focus();
+        if (input.value) input.select();
         hide();
         disableDuplicatePilot({ target: input });
       });
@@ -200,7 +207,10 @@ function setupPilotSearch(id) {
   }
 
   input.addEventListener("input", show);
-  input.addEventListener("focus", show);
+  input.addEventListener("focus", () => {
+    if (input.value) input.select();
+    show();
+  });
   document.addEventListener("click", (e) => {
     if (!results.contains(e.target) && e.target !== input) hide();
   });
