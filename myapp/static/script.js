@@ -225,6 +225,7 @@ function setupMedicSearch(id) {
         if (input.value) input.select();
         hide();
         disableDuplicateMedic({ target: input });
+        saveCrewSelection();
       });
       results.appendChild(div);
     });
