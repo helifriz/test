@@ -69,6 +69,10 @@ button {
   display: inline-block;
 }
 
+.waypoint-search input:focus {
+  background-color: #ffffcc;
+}
+
 .waypoint-results {
   display: none;
   position: absolute;

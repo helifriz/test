@@ -234,6 +234,9 @@ function setupWaypointInput(input) {
   };
   input.addEventListener("change", updateCode);
   input.addEventListener("input", () => toggleSceneInputs(input));
+  input.addEventListener("focus", () => {
+    if (input.value) input.select();
+  });
 }
 
 function setupWaypointSearch(input) {
@@ -271,6 +274,8 @@ function setupWaypointSearch(input) {
           code === "SCENE" ? "SCENE" : `${code}-${waypoints[code].name}`;
         hide();
         toggleSceneInputs(input);
+        input.focus();
+        input.select();
       });
       results.appendChild(div);
     });
