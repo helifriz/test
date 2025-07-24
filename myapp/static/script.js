@@ -11,6 +11,10 @@ let waypoints = {};
 let PILOTS = [];
 let MEDICS = [];
 
+const CREW_KEY = 'crewSelection';
+const CONFIG_KEY = 'flightConfig';
+const BASE_KEY = 'baseSelection';
+
 async function fetchData() {
   try {
     const res = await fetch('/data');
@@ -83,6 +87,12 @@ window.addEventListener('storage', (e) => {
   } else if (e.key === 'extraWaypoints') {
     loadExtraWaypoints();
     populateAllDropdowns();
+  } else if (e.key === CREW_KEY) {
+    loadCrewSelection();
+  } else if (e.key === CONFIG_KEY) {
+    loadFlightConfig();
+  } else if (e.key === BASE_KEY) {
+    loadBaseSelection();
   }
 });
 
@@ -103,6 +113,91 @@ function populateHelicopterDropdown() {
 function populatePilotDropdowns() {
   document.getElementById("leftPilot").value = "";
   document.getElementById("rightPilot").value = "";
+}
+
+function saveCrewSelection() {
+  try {
+    const data = {
+      helicopter: document.getElementById('helicopter').value,
+      leftPilot: document.getElementById('leftPilot').value,
+      rightPilot: document.getElementById('rightPilot').value,
+      seat1a: document.getElementById('seat1a').value,
+      seat2a: document.getElementById('seat2a').value,
+      seat1c: document.getElementById('seat1c').value,
+    };
+    localStorage.setItem(CREW_KEY, JSON.stringify(data));
+  } catch (err) {
+    console.error('Failed to store crew selection', err);
+  }
+}
+
+function loadCrewSelection() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(CREW_KEY) || '{}');
+    if (stored.helicopter) {
+      const heliSelect = document.getElementById('helicopter');
+      heliSelect.value = stored.helicopter;
+    }
+    const ids = ['leftPilot','rightPilot','seat1a','seat2a','seat1c'];
+    ids.forEach((id) => {
+      if (stored[id]) {
+        const input = document.getElementById(id);
+        input.value = stored[id];
+      }
+    });
+    disableDuplicatePilot();
+    ['seat1a','seat2a','seat1c'].forEach((id) => {
+      disableDuplicateMedic({ target: document.getElementById(id) });
+    });
+  } catch (err) {
+    console.error('Failed to load crew selection', err);
+  }
+}
+
+function saveFlightConfig() {
+  try {
+    const data = {
+      speed: document.getElementById('speed').value,
+      fuelBurn: document.getElementById('fuel').value,
+      startFuel: document.getElementById('startFuel').value,
+    };
+    localStorage.setItem(CONFIG_KEY, JSON.stringify(data));
+  } catch (err) {
+    console.error('Failed to store flight config', err);
+  }
+}
+
+function loadFlightConfig() {
+  try {
+    const stored = JSON.parse(localStorage.getItem(CONFIG_KEY) || '{}');
+    if (stored.speed) document.getElementById('speed').value = stored.speed;
+    if (stored.fuelBurn) document.getElementById('fuel').value = stored.fuelBurn;
+    if (stored.startFuel)
+      document.getElementById('startFuel').value = stored.startFuel;
+  } catch (err) {
+    console.error('Failed to load flight config', err);
+  }
+}
+
+function saveBaseSelection() {
+  try {
+    const base = document.getElementById('region-select').value;
+    localStorage.setItem(BASE_KEY, base);
+  } catch (err) {
+    console.error('Failed to store base selection', err);
+  }
+}
+
+function loadBaseSelection() {
+  try {
+    const stored = localStorage.getItem(BASE_KEY);
+    if (stored) {
+      document.getElementById('region-select').value = stored;
+      populateAllDropdowns();
+    }
+  } catch (err) {
+    console.error('Failed to load base selection', err);
+  }
 }
 
 function setupMedicSearch(id) {
@@ -1186,9 +1281,12 @@ async function start() {
   loadExtraWaypoints();
   setupWaypointInputs();
   populatePilotDropdowns();
+  loadBaseSelection();
   populateAllDropdowns();
   disableDuplicatePilot();
   populateHelicopterDropdown();
+  loadCrewSelection();
+  loadFlightConfig();
   document.querySelectorAll(".leg-row").forEach(attachRemoveHandler);
 
   const qs = (id) => document.getElementById(id);
@@ -1202,6 +1300,16 @@ async function start() {
     ['printBtn', 'click', printFlightLog],
     ['manageBtn', 'click', (e) => (window.location.href = e.target.dataset.href)],
     ['region-select', 'change', populateAllDropdowns],
+    ['region-select', 'change', saveBaseSelection],
+    ['helicopter', 'change', saveCrewSelection],
+    ['leftPilot', 'input', saveCrewSelection],
+    ['rightPilot', 'input', saveCrewSelection],
+    ['seat1a', 'input', saveCrewSelection],
+    ['seat2a', 'input', saveCrewSelection],
+    ['seat1c', 'input', saveCrewSelection],
+    ['speed', 'input', saveFlightConfig],
+    ['fuel', 'input', saveFlightConfig],
+    ['startFuel', 'input', saveFlightConfig],
   ];
   mapping.forEach(([id, evt, fn]) => {
     const el = qs(id);
