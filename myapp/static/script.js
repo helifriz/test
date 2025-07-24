@@ -1091,6 +1091,10 @@ function composeEmail() {
       .map((p) => toSkyVectorDMM(p.lat, p.lon))
       .join("+");
     const skyVectorURL = `https://skyvector.com/?fpl=${encodeURIComponent(skyVectorRoute)}`;
+    const scenePoint = points.find((p) => p.original === "SCENE");
+    const googleSceneURL = scenePoint
+      ? `https://maps.google.com/?q=${scenePoint.lat},${scenePoint.lon}&t=k`
+      : "";
     const flightNumInput =
       document.getElementById("flightNum") ||
       document.getElementById("flight#");
@@ -1101,14 +1105,18 @@ function composeEmail() {
     const subject = encodeURIComponent(subjectStr);
     const fullRoute = points.map(formatForForeFlight).join("+");
     const fullForeflightURL = `foreflightmobile://maps/search?q=${fullRoute}`;
-    const body = encodeURIComponent(
-      `Here are the route planner links:\n\n` +
-        `ForeFlight (Links for each leg):\n${foreflightURLs.map((url, i) => `Leg ${i + 1}: ${url}`).join("\n")}\n\n` +
-        `ForeFlight (Entire Route):\n${fullForeflightURL}\n\n` +       
-        `Windy:\n${windyURL}\n\n` +
-        `METAR-TAF:\n${metarURL}\n\n` +
-        `SkyVector:\n${skyVectorURL}`,
-    );
+    const bodyLines = [
+      "Here are the route planner links:\n",
+      `ForeFlight (Links for each leg):\n${foreflightURLs.map((url, i) => `Leg ${i + 1}: ${url}`).join("\n")}\n`,
+      `\nForeFlight (Entire Route):\n${fullForeflightURL}\n`,
+      `\nWindy:\n${windyURL}\n`,
+      `\nMETAR-TAF:\n${metarURL}\n`,
+      `\nSkyVector:\n${skyVectorURL}`,
+    ];
+    if (googleSceneURL) {
+      bodyLines.push(`\nGoogle Maps (Scene):\n${googleSceneURL}`);
+    }
+    const body = encodeURIComponent(bodyLines.join(""));
     window.location.href = `mailto:?subject=${subject}&body=${body}`;
   } catch (err) {
     console.error(err);
