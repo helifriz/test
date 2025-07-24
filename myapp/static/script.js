@@ -295,6 +295,7 @@ function setupPilotSearch(id) {
         if (input.value) input.select();
         hide();
         disableDuplicatePilot({ target: input });
+        saveCrewSelection();
       });
       results.appendChild(div);
     });
