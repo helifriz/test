@@ -921,19 +921,31 @@ function getCivilTwilight() {
   return { dawn: fmt(times.dawn), dusk: fmt(times.dusk) };
 }
 
-function getWeather() {
+function openWindy() {
   try {
     const points = getPoints();
     if (!points.length) {
-      alert("No route points to build weather links");
+      alert("No route points to build a Windy link");
       return;
     }
-
     const windyRouteStr = points.map((p) => `${p.lat},${p.lon}`).join(";");
     const avgLat = points.reduce((sum, p) => sum + p.lat, 0) / points.length;
     const avgLon = points.reduce((sum, p) => sum + p.lon, 0) / points.length;
     const windyURL = `https://www.windy.com/route-planner/vfr/${encodeURIComponent(windyRouteStr)}?layer=radar,${avgLat.toFixed(4)},${avgLon.toFixed(4)},7,p:cities`;
     window.open(windyURL, "_blank");
+  } catch (err) {
+    console.error(err);
+    alert(err.message || "Unable to open Windy");
+  }
+}
+
+function openMetarTaf() {
+  try {
+    const points = getPoints();
+    if (!points.length) {
+      alert("No route points to build a METAR-TAF link");
+      return;
+    }
     const fromPoint = points[0];
     const latInt = Math.round(fromPoint.lat * 10000);
     const lonInt = Math.round(fromPoint.lon * 10000);
@@ -941,7 +953,19 @@ function getWeather() {
     const hl = isICAO ? fromPoint.original : "";
     const metarURL = `https://metar-taf.com/?c=${latInt}.${lonInt}&hl=${hl}`;
     window.open(metarURL, "_blank");
-    // Build wxbrief.ca URL using all route points
+  } catch (err) {
+    console.error(err);
+    alert(err.message || "Unable to open METAR-TAF");
+  }
+}
+
+function openWxBrief() {
+  try {
+    const points = getPoints();
+    if (!points.length) {
+      alert("No route points to build a WxBrief link");
+      return;
+    }
     const wxPoints = points
       .map((p) => {
         const ident = p.original || "";
@@ -953,22 +977,29 @@ function getWeather() {
     const wxBriefURL =
       `https://wxbrief.ca/?${wxPoints}&routeRadius=20&metar=true&taf=true&gfaWx=true&gfaTurb=true&live=true`;
     window.open(wxBriefURL, "_blank");
-    // 📍 Google Maps for all Scene Calls (manual lat/lon)
+  } catch (err) {
+    console.error(err);
+    alert(err.message || "Unable to open WxBrief");
+  }
+}
+
+function openGoogleMaps() {
+  try {
+    const points = getPoints();
+    if (!points.length) {
+      alert("No route points to build Google Maps link");
+      return;
+    }
     points.forEach((p) => {
-      // Treat as ICAO if original is 3-4 letters/numbers AND no comma (not lat/lon)
       const isICAO = /^[A-Z0-9]{3,4}$/.test(p.original);
       if (!isICAO) {
-        // This is a scene call (manual lat/lon)
         const googleMapsURL = `https://maps.google.com/?q=${p.lat},${p.lon}&t=k`;
         window.open(googleMapsURL, "_blank");
       }
     });
-
-    // Open SkyVector route in a new tab as well
-    openSkyVector();
   } catch (err) {
     console.error(err);
-    alert(err.message || "Unable to open weather information");
+    alert(err.message || "Unable to open Google Maps");
   }
 }
 function openSkyVector() {
@@ -1296,7 +1327,10 @@ async function start() {
     ['addLegBtn', 'click', addLeg],
     ['calcBtn', 'click', calculateRoute],
     ['foreflightBtn', 'click', openForeFlight],
-    ['weatherBtn', 'click', getWeather],
+    ['windyBtn', 'click', openWindy],
+    ['googleBtn', 'click', openGoogleMaps],
+    ['metarBtn', 'click', openMetarTaf],
+    ['wxbriefBtn', 'click', openWxBrief],
     ['skyvectorBtn', 'click', openSkyVector],
     ['emailBtn', 'click', composeEmail],
     ['printBtn', 'click', printFlightLog],
