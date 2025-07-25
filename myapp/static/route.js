@@ -633,7 +633,7 @@ export function composeEmail() {
     console.error(err);
   }
 }
-export function printFlightLog() {
+export async function printFlightLog() {
   const date = new Date().toLocaleDateString();
   const reg = document.getElementById("helicopter").value || "";
   const flightNumInput =
