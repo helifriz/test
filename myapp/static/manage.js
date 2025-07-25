@@ -1,4 +1,4 @@
-function postData(url, data, cb) {
+function postData(url, data, cb, errCb) {
   fetch(url, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
@@ -10,16 +10,18 @@ function postData(url, data, cb) {
     })
     .then(cb)
     .catch((err) => {
-      alert('Error saving');
       console.error(err);
+      if (errCb) errCb(err);
     });
 }
 
-function saveExtra(key, item) {
+function saveExtra(key, item, prop) {
   try {
     const list = JSON.parse(localStorage.getItem(key) || '[]');
-    list.push(item);
-    localStorage.setItem(key, JSON.stringify(list));
+    if (!list.some((i) => i[prop] === item[prop])) {
+      list.push(item);
+      localStorage.setItem(key, JSON.stringify(list));
+    }
   } catch (err) {
     console.error('Failed to update stored ' + key, err);
   }
@@ -32,12 +34,20 @@ function addPilot() {
     alert('Please enter a name and weight');
     return;
   }
-  postData('/addPilot', { name, weight }, () => {
-    document.getElementById('pilotName').value = '';
-    document.getElementById('pilotWeight').value = '';
-    alert('Pilot saved');
-    saveExtra('extraPilots', { name, weight });
-  });
+  postData(
+    '/addPilot',
+    { name, weight },
+    () => {
+      document.getElementById('pilotName').value = '';
+      document.getElementById('pilotWeight').value = '';
+      alert('Pilot saved');
+      saveExtra('extraPilots', { name, weight }, 'name');
+    },
+    () => {
+      alert('Pilot saved locally');
+      saveExtra('extraPilots', { name, weight }, 'name');
+    },
+  );
 }
 
 function addMedic() {
@@ -47,12 +57,20 @@ function addMedic() {
     alert('Please enter a name and weight');
     return;
   }
-  postData('/addMedic', { name, weight }, () => {
-    document.getElementById('medicName').value = '';
-    document.getElementById('medicWeight').value = '';
-    alert('Medic saved');
-    saveExtra('extraMedics', { name, weight });
-  });
+  postData(
+    '/addMedic',
+    { name, weight },
+    () => {
+      document.getElementById('medicName').value = '';
+      document.getElementById('medicWeight').value = '';
+      alert('Medic saved');
+      saveExtra('extraMedics', { name, weight }, 'name');
+    },
+    () => {
+      alert('Medic saved locally');
+      saveExtra('extraMedics', { name, weight }, 'name');
+    },
+  );
 }
 
 function addWaypoint() {
@@ -67,16 +85,24 @@ function addWaypoint() {
     return;
   }
   const regions = regionText.split(',').map(r => r.trim());
-  postData('/addWaypoint', { code, name, regions, lat, lon, elev }, () => {
-    document.getElementById('waypointCode').value = '';
-    document.getElementById('waypointName').value = '';
-    document.getElementById('waypointRegion').value = '';
-    document.getElementById('waypointLat').value = '';
-    document.getElementById('waypointLon').value = '';
-    document.getElementById('waypointElev').value = '';
-    alert('Waypoint saved');
-    saveExtra('extraWaypoints', { code, name, regions, lat, lon, elev });
-  });
+  postData(
+    '/addWaypoint',
+    { code, name, regions, lat, lon, elev },
+    () => {
+      document.getElementById('waypointCode').value = '';
+      document.getElementById('waypointName').value = '';
+      document.getElementById('waypointRegion').value = '';
+      document.getElementById('waypointLat').value = '';
+      document.getElementById('waypointLon').value = '';
+      document.getElementById('waypointElev').value = '';
+      alert('Waypoint saved');
+      saveExtra('extraWaypoints', { code, name, regions, lat, lon, elev }, 'code');
+    },
+    () => {
+      alert('Waypoint saved locally');
+      saveExtra('extraWaypoints', { code, name, regions, lat, lon, elev }, 'code');
+    },
+  );
 }
 
 document.addEventListener('DOMContentLoaded', () => {
