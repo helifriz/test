@@ -756,19 +756,17 @@ export async function printFlightLog() {
     </table>`;
 
   const html = `
-    <style type="text/css">
-    @media print {
-      @page {
-        size: landscape;
-        margin: 10mm;
+    <style>
+      body { font-family: "Roboto", Arial, sans-serif; }
+      .page-content {
+        padding: 10mm;
       }
-    }
       table.tableizer-table {
-      border: 1px solid #CCC;
-      font-family: "Roboto", Arial, Helvetica, sans-serif;
-      table-layout: auto;
-      border-collapse: collapse;
-      border-spacing: 0;
+        border: 1px solid #CCC;
+        font-family: "Roboto", Arial, Helvetica, sans-serif;
+        table-layout: auto;
+        border-collapse: collapse;
+        border-spacing: 0;
       }
       .tableizer-table th,
       .tableizer-table td {
@@ -814,17 +812,19 @@ export async function printFlightLog() {
       width: 35px;
     }
     </style>
-    ${infoTable}
-    ${legsTable}
-    <div style="margin-top: 12px;">
-      ${weightSection}
-      ${routeSection}
+    <div class="page-content">
+      ${infoTable}
+      ${legsTable}
+      <div class="print-row">
+        ${weightSection}
+        ${routeSection}
+      </div>
     </div>`;
   const container = document.createElement("div");
   container.innerHTML = html;
   try {
     const options = {
-      margin: 10,
+      margin: 0, // content already has padding
       jsPDF: { unit: "mm", format: "a4", orientation: "landscape" },
     };
     const blob = await html2pdf().set(options).from(container).outputPdf("blob");
