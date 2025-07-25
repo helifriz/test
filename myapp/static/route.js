@@ -819,12 +819,24 @@ export function printFlightLog() {
       ${weightSection}
       ${routeSection}
     </div>`;
-  const win = window.open("", "_blank");
-  win.document.write(html);
-  win.document.close();
-  if (win.document.readyState === "complete") {
-    win.print();
-  } else {
+  const container = document.createElement("div");
+  container.innerHTML = html;
+  try {
+    const blob = await html2pdf().from(container).outputPdf("blob");
+    if (navigator.share && blob) {
+      const file = new File([blob], "flight-log.pdf", {
+        type: "application/pdf",
+      });
+      await navigator.share({ files: [file], title: "Flight Log" });
+    } else {
+      const url = URL.createObjectURL(blob);
+      window.open(url, "_blank");
+    }
+  } catch (err) {
+    console.error("Failed to generate PDF", err);
+    const win = window.open("", "_blank");
+    win.document.write(html);
+    win.document.close();
     win.addEventListener("load", () => win.print());
   }
 }
