@@ -136,6 +136,11 @@ export function calculateRoute() {
       const fromCode = fromSel.dataset.code || fromSel.value.split(/[\s-]/)[0];
       const toCode = toSel.dataset.code || toSel.value.split(/[\s-]/)[0];
       if (!fromCode || !toCode) return;
+      if (fromCode === toCode) {
+        alert(`Leg ${i + 1} departure and destination cannot be the same`);
+        errors.push(`Leg ${i + 1} departure and destination cannot be the same`);
+        return;
+      }
       let fLat, fLon, tLat, tLon, fName, tName;
       if (fromCode === "SCENE") {
         fLat = parseFloat(leg.querySelector(".from-lat").value);
