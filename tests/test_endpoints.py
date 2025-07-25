@@ -53,9 +53,8 @@ def test_add_waypoint(client):
     payload = {
         'code': 'TEST',
         'name': 'Test Point',
-        'regions': ['X'],
-        'lat': 1.0,
-        'lon': 2.0,
+        'lat': 49.2,
+        'lon': -123.1,
         'elev': 100,
     }
     resp = client.post('/addWaypoint', json=payload)
@@ -65,9 +64,10 @@ def test_add_waypoint(client):
     assert payload['code'] in data['waypoints']
     wp = data['waypoints'][payload['code']]
     assert wp['name'] == 'Test Point'
-    assert wp['lat'] == 1.0
-    assert wp['lon'] == 2.0
-    assert wp['regions'] == ['X']
+    assert wp['lat'] == 49.2
+    assert wp['lon'] == -123.1
+    for region in ['ALL', 'Vancouver', 'Parksville', 'Kamloops']:
+        assert region in wp['regions']
     assert wp['elev'] == 100
 
 
@@ -87,7 +87,6 @@ def test_add_waypoint_invalid_lat(client):
     payload = {
         'code': 'BAD',
         'name': 'Bad Point',
-        'regions': ['X'],
         'lat': 95.0,
         'lon': 0.0,
         'elev': 10,
