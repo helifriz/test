@@ -1,4 +1,4 @@
-import { waypoints, PILOTS, MEDICS, HELICOPTERS, MIN_FUEL, MAX_FUEL, MAX_TAKEOFF_WEIGHT } from "./data.js";
+import { waypoints, PILOTS, MEDICS, HELICOPTERS, MIN_FUEL, MAX_FUEL, MAX_TAKEOFF_WEIGHT, BASE_COORDS } from "./data.js";
 export let latestLegWeights = [];
 export let latestWeightTable = "";
 export let latestRouteTable = "";
