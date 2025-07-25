@@ -531,11 +531,16 @@ export function formatForForeFlight(p) {
 export function openForeFlight() {
   try {
     const points = getPoints();
+    if (!points.length) {
+      alert("No route points to build a ForeFlight link");
+      return;
+    }
     const route = points.map(formatForForeFlight).join("+");
     const url = `foreflightmobile://maps/search?q=${route}`;
     window.open(url, "_blank");
   } catch (err) {
     console.error(err);
+    alert(err.message || "Unable to open ForeFlight");
   }
 }
 export function composeEmail() {
