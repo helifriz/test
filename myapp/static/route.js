@@ -822,7 +822,10 @@ export async function printFlightLog() {
   const container = document.createElement("div");
   container.innerHTML = html;
   try {
-    const blob = await html2pdf().from(container).outputPdf("blob");
+    const options = {
+      jsPDF: { format: "a4", orientation: "landscape" },
+    };
+    const blob = await html2pdf().set(options).from(container).outputPdf("blob");
     const file = new File([blob], "flight-log.pdf", {
       type: "application/pdf",
     });
