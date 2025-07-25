@@ -786,6 +786,7 @@ function calculateRoute() {
       toCode !== "SCENE" && waypoints[toCode] && waypoints[toCode].elev !== undefined
         ? waypoints[toCode].elev
         : "";
+    const twilight = getCivilTwilightAt(fLat, fLon);
     table += `<tr>
       <td>${i + 1}</td>
       <td>${fName} ➝ ${tName}</td>
@@ -798,8 +799,8 @@ function calculateRoute() {
       <td>${fuelUp || ""}</td>
       <td>${upliftLitres}</td>
       <td>${totalWeight}</td>
-      <td></td>
-      <td></td>
+      <td>${twilight.dawn}</td>
+      <td>${twilight.dusk}</td>
     </tr>`;
     const seat2aTotal = seat2a + escortWeight;
     const zfw =
@@ -920,6 +921,15 @@ function getCivilTwilight() {
   const coords = getBaseCoords();
   if (!coords || typeof SunCalc === "undefined") return null;
   const times = SunCalc.getTimes(new Date(), coords.lat, coords.lon);
+  const tz = "America/Vancouver";
+  const fmt = (d) =>
+    d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZone: tz });
+  return { dawn: fmt(times.dawn), dusk: fmt(times.dusk) };
+}
+
+function getCivilTwilightAt(lat, lon) {
+  if (typeof SunCalc === "undefined") return { dawn: "", dusk: "" };
+  const times = SunCalc.getTimes(new Date(), lat, lon);
   const tz = "America/Vancouver";
   const fmt = (d) =>
     d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZone: tz });
