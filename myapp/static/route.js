@@ -702,8 +702,6 @@ export function printFlightLog() {
           <td style="font-weight:bold !important;">Seat 2A:</td><td>${seat2a}</td>
           <td style="font-weight:bold !important;">Seat 1C:</td><td>${seat1c}</td>
           <td style="font-weight:bold !important;">SQK:</td><td></td>
-        </tr>
-        ${twilightRow}
       </tbody>
     </table>`;
 
