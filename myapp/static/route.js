@@ -794,6 +794,10 @@ export function printFlightLog() {
   const win = window.open("", "_blank");
   win.document.write(html);
   win.document.close();
-  win.print();
+  if (win.document.readyState === "complete") {
+    win.print();
+  } else {
+    win.addEventListener("load", () => win.print());
+  }
 }
 
