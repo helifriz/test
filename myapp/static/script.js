@@ -669,12 +669,15 @@ function calculateRoute() {
     <th colspan="2">Fuel (kg)</th>
     <th colspan="2">Est Uplift</th>
     <th rowspan="2">Takeoff Weight</th>
+    <th colspan="2">Twilight</th>
   </tr>
   <tr>
     <th>Depart</th>
     <th>Dest</th>
     <th>Kg</th>
     <th>Ltr</th>
+    <th>AM</th>
+    <th>PM</th>
   </tr>
 </thead>
   <tbody>
@@ -795,6 +798,8 @@ function calculateRoute() {
       <td>${fuelUp || ""}</td>
       <td>${upliftLitres}</td>
       <td>${totalWeight}</td>
+      <td></td>
+      <td></td>
     </tr>`;
     const seat2aTotal = seat2a + escortWeight;
     const zfw =
