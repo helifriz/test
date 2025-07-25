@@ -17,6 +17,14 @@ BASE_COORDS = {
     "Prince Rupert": {"lat": 54.4685, "lon": -128.5762},
 }
 
+# Bounding box for British Columbia (approximate)
+BC_BOUNDS = {
+    "min_lat": 48.3,
+    "max_lat": 60.0,
+    "min_lon": -139.1,
+    "max_lon": -114.0,
+}
+
 
 def haversine_nm(lat1, lon1, lat2, lon2):
     """Return distance between two lat/lon pairs in nautical miles."""
@@ -54,6 +62,11 @@ def add_waypoint():
         abort(400, description='Missing required fields')
     if not (-90 <= lat <= 90 and -180 <= lon <= 180):
         abort(400, description='Coordinates out of range')
+    if not (
+        BC_BOUNDS["min_lat"] <= lat <= BC_BOUNDS["max_lat"]
+        and BC_BOUNDS["min_lon"] <= lon <= BC_BOUNDS["max_lon"]
+    ):
+        abort(400, description='Coordinates must be within British Columbia')
     if not (-1000 <= elev <= 15000):
         abort(400, description='Elevation out of range')
 

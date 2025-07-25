@@ -33,6 +33,13 @@ const BASE_COORDS = {
   'Prince Rupert': { lat: 54.4685, lon: -128.5762 },
 };
 
+const BC_BOUNDS = {
+  minLat: 48.3,
+  maxLat: 60.0,
+  minLon: -139.1,
+  maxLon: -114.0,
+};
+
 function haversineNM(lat1, lon1, lat2, lon2) {
   const R = 6371;
   const toRad = (x) => (x * Math.PI) / 180;
@@ -83,6 +90,15 @@ function addWaypoint() {
   const elev = parseFloat(document.getElementById('waypointElev').value);
   if (!code || !name || isNaN(lat) || isNaN(lon) || isNaN(elev)) {
     alert('Please fill out all waypoint fields');
+    return;
+  }
+  if (
+    lat < BC_BOUNDS.minLat ||
+    lat > BC_BOUNDS.maxLat ||
+    lon < BC_BOUNDS.minLon ||
+    lon > BC_BOUNDS.maxLon
+  ) {
+    alert('Coordinates must be within British Columbia');
     return;
   }
   let regions = regionText ? regionText.split(',').map((r) => r.trim()) : [];

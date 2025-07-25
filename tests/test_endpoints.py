@@ -94,3 +94,16 @@ def test_add_waypoint_invalid_lat(client):
     resp = client.post('/addWaypoint', json=payload)
     assert resp.status_code == 400
 
+
+def test_add_waypoint_outside_bc(client):
+    payload = {
+        'code': 'OUTBC',
+        'name': 'Outside BC',
+        'lat': 47.0,
+        'lon': -123.1,
+        'elev': 50,
+    }
+    resp = client.post('/addWaypoint', json=payload)
+    assert resp.status_code == 400
+    assert 'British Columbia' in resp.get_json()['error']
+
