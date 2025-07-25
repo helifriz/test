@@ -32,7 +32,8 @@ export function withinBC(lat, lon) {
 }
 export function calculateRoute() {
   // Ensure at least one leg has valid waypoints before calculating
-  const hasWaypoints = Array.from(document.querySelectorAll('.leg-row')).some(
+  const legRows = Array.from(document.querySelectorAll('.leg-row'));
+  const hasWaypoints = legRows.some(
     (leg) => {
       const fromSel = leg.querySelector('.from');
       const toSel = leg.querySelector('.to');
@@ -146,7 +147,7 @@ export function calculateRoute() {
 `;
   const legWeights = [];
   let finalDestinationFuel = fuel;
-    document.querySelectorAll(".leg-row").forEach((leg, i) => {
+  legRows.forEach((leg, i) => {
       const fromSel = leg.querySelector(".from");
       const toSel = leg.querySelector(".to");
       const fromCode = fromSel.dataset.code || fromSel.value.split(/[\s-]/)[0];
@@ -244,14 +245,16 @@ export function calculateRoute() {
       lowFuelWarningShown = true;
     }
     fuel += fuelUp;
-    if (fuel < MIN_FUEL && !lowFuelWarningShown) {
-      alert(`Fuel level below ${MIN_FUEL} kg (~20 min) on leg ${i + 2}`);
-      errors.push(
-        `Fuel level must be at least ${MIN_FUEL} kg (~20 min) on leg ${i + 2}`,
-      );
-    } else if (fuel > MAX_FUEL) {
-      alert(`Fuel level must not exceed ${MAX_FUEL} kg on leg ${i + 2}`);
-      errors.push(`Fuel level must not exceed ${MAX_FUEL} kg on leg ${i + 2}`);
+    if (i < legRows.length - 1) {
+      if (fuel < MIN_FUEL && !lowFuelWarningShown) {
+        alert(`Fuel level below ${MIN_FUEL} kg (~20 min) on leg ${i + 2}`);
+        errors.push(
+          `Fuel level must be at least ${MIN_FUEL} kg (~20 min) on leg ${i + 2}`,
+        );
+      } else if (fuel > MAX_FUEL) {
+        alert(`Fuel level must not exceed ${MAX_FUEL} kg on leg ${i + 2}`);
+        errors.push(`Fuel level must not exceed ${MAX_FUEL} kg on leg ${i + 2}`);
+      }
     }
     dist += d;
     mins += min;
