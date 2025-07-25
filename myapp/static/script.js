@@ -1331,7 +1331,7 @@ function printFlightLog() {
     </style>
     ${infoTable}
     ${legsTable}
-    <div style="margin-top: 12px;" class="print-row">
+    <div style="margin-top: 12px;">
       ${weightSection}
       ${routeSection}
     </div>`;
