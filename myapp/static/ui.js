@@ -1,4 +1,4 @@
-import { MEDICS, PILOTS, waypoints } from "./data.js";
+import { MEDICS, PILOTS, waypoints, saveCrewSelection } from "./data.js";
 export let currentWaypointCodes = [];
 
 export function setupMedicSearch(id) {
@@ -55,6 +55,7 @@ export function disableDuplicateMedic(e) {
       if (other === currentVal) {
         alert("Medic already assigned to another seat");
         e.target.value = "";
+        saveCrewSelection();
       }
     }
   });
@@ -69,6 +70,7 @@ export function disableDuplicatePilot(e) {
     } else if (e && e.target === rightInput) {
       rightInput.value = "";
     }
+    saveCrewSelection();
   }
 }
 
