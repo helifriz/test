@@ -823,10 +823,14 @@ export async function printFlightLog() {
   container.innerHTML = html;
   try {
     const blob = await html2pdf().from(container).outputPdf("blob");
-    if (navigator.share && blob) {
-      const file = new File([blob], "flight-log.pdf", {
-        type: "application/pdf",
-      });
+    const file = new File([blob], "flight-log.pdf", {
+      type: "application/pdf",
+    });
+    if (
+      navigator.share &&
+      navigator.canShare &&
+      navigator.canShare({ files: [file] })
+    ) {
       await navigator.share({ files: [file], title: "Flight Log" });
     } else {
       const url = URL.createObjectURL(blob);
