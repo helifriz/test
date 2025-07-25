@@ -1,4 +1,5 @@
 from flask import Flask, render_template, jsonify
+from werkzeug.exceptions import HTTPException
 import os
 
 # Support running as part of the ``myapp`` package or as standalone files.
@@ -25,6 +26,14 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() in (
 app.register_blueprint(pilot_bp)
 app.register_blueprint(medic_bp)
 app.register_blueprint(waypoint_bp)
+
+
+@app.errorhandler(HTTPException)
+def handle_http_error(err):
+    """Return JSON responses for HTTP errors."""
+    response = jsonify({'error': err.description})
+    response.status_code = err.code
+    return response
 
 
 @app.route('/')

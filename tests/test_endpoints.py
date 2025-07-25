@@ -69,3 +69,29 @@ def test_add_waypoint(client):
     assert wp['lon'] == 2.0
     assert wp['regions'] == ['X']
     assert wp['elev'] == 100
+
+
+def test_add_pilot_invalid_weight(client):
+    resp = client.post('/addPilot', json={'name': 'Bad', 'weight': -1})
+    assert resp.status_code == 400
+    assert 'weight' in resp.get_json()['error'].lower()
+
+
+def test_add_pilot_duplicate(client):
+    client.post('/addPilot', json={'name': 'Dup', 'weight': 75})
+    resp = client.post('/addPilot', json={'name': 'Dup', 'weight': 75})
+    assert resp.status_code == 409
+
+
+def test_add_waypoint_invalid_lat(client):
+    payload = {
+        'code': 'BAD',
+        'name': 'Bad Point',
+        'regions': ['X'],
+        'lat': 95.0,
+        'lon': 0.0,
+        'elev': 10,
+    }
+    resp = client.post('/addWaypoint', json=payload)
+    assert resp.status_code == 400
+
