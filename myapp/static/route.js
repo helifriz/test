@@ -760,6 +760,7 @@ export async function printFlightLog() {
     @media print {
       @page {
         size: landscape;
+        margin: 10mm;
       }
     }
       table.tableizer-table {
@@ -823,7 +824,8 @@ export async function printFlightLog() {
   container.innerHTML = html;
   try {
     const options = {
-      jsPDF: { format: "a4", orientation: "landscape" },
+      margin: 10,
+      jsPDF: { unit: "mm", format: "a4", orientation: "landscape" },
     };
     const blob = await html2pdf().set(options).from(container).outputPdf("blob");
     const file = new File([blob], "flight-log.pdf", {
