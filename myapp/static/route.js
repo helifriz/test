@@ -1,4 +1,11 @@
 import { waypoints, PILOTS, MEDICS, HELICOPTERS, MIN_FUEL, MAX_FUEL, MAX_TAKEOFF_WEIGHT, BASE_COORDS } from "./data.js";
+
+export const BC_BOUNDS = {
+  minLat: 48.3,
+  maxLat: 60.0,
+  minLon: -139.1,
+  maxLon: -114.0,
+};
 export let latestLegWeights = [];
 export let latestWeightTable = "";
 export let latestRouteTable = "";
@@ -12,6 +19,15 @@ export function haversine(lat1, lon1, lat2, lon2) {
     Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLon / 2) ** 2;
   return Math.round(
     R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a)) * 0.539957,
+  );
+}
+
+export function withinBC(lat, lon) {
+  return (
+    lat >= BC_BOUNDS.minLat &&
+    lat <= BC_BOUNDS.maxLat &&
+    lon >= BC_BOUNDS.minLon &&
+    lon <= BC_BOUNDS.maxLon
   );
 }
 export function calculateRoute() {
@@ -145,6 +161,10 @@ export function calculateRoute() {
       if (fromCode === "SCENE") {
         fLat = parseFloat(leg.querySelector(".from-lat").value);
         fLon = parseFloat(leg.querySelector(".from-lon").value);
+        if (!withinBC(fLat, fLon)) {
+          alert(`Scene coordinates on leg ${i + 1} must be within British Columbia`);
+          errors.push(`Scene coordinates on leg ${i + 1} must be within British Columbia`);
+        }
         fName = `SCENE (${fLat}, ${fLon})`;
       } else {
         const f = waypoints[fromCode];
@@ -155,6 +175,10 @@ export function calculateRoute() {
       if (toCode === "SCENE") {
         tLat = parseFloat(leg.querySelector(".to-lat").value);
         tLon = parseFloat(leg.querySelector(".to-lon").value);
+        if (!withinBC(tLat, tLon)) {
+          alert(`Scene coordinates on leg ${i + 1} must be within British Columbia`);
+          errors.push(`Scene coordinates on leg ${i + 1} must be within British Columbia`);
+        }
         tName = `SCENE (${tLat}, ${tLon})`;
       } else {
         const t = waypoints[toCode];
@@ -340,6 +364,9 @@ export function getPoints() {
       const lon = parseFloat(lonInput.value);
       if (isNaN(lat) || isNaN(lon)) {
         throw new Error("Scene latitude and longitude are required");
+      }
+      if (!withinBC(lat, lon)) {
+        throw new Error("Scene coordinates must be within British Columbia");
       }
       return { lat, lon, original: code };
     }
