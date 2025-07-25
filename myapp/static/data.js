@@ -1,3 +1,4 @@
+import { disableDuplicatePilot, disableDuplicateMedic } from './ui.js';
 
 export let HELICOPTERS = [];
 export let MAX_FUEL = 0;
