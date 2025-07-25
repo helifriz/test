@@ -923,7 +923,12 @@ function getCivilTwilight() {
   const times = SunCalc.getTimes(new Date(), coords.lat, coords.lon);
   const tz = "America/Vancouver";
   const fmt = (d) =>
-    d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZone: tz });
+    d.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: tz,
+      hour12: false,
+    });
   return { dawn: fmt(times.dawn), dusk: fmt(times.dusk) };
 }
 
@@ -932,7 +937,12 @@ function getCivilTwilightAt(lat, lon) {
   const times = SunCalc.getTimes(new Date(), lat, lon);
   const tz = "America/Vancouver";
   const fmt = (d) =>
-    d.toLocaleTimeString([], { hour: "2-digit", minute: "2-digit", timeZone: tz });
+    d.toLocaleTimeString([], {
+      hour: "2-digit",
+      minute: "2-digit",
+      timeZone: tz,
+      hour12: false,
+    });
   return { dawn: fmt(times.dawn), dusk: fmt(times.dusk) };
 }
 
